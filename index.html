@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Min Rutine 💙</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#dff5ff, #f6eaff);
+    color: #25324a;
+}
+
+.app {
+    max-width: 650px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 5px;
+}
+
+.date {
+    text-align: center;
+    color: #65718a;
+    margin-bottom: 20px;
+}
+
+.progress-box {
+    background: white;
+    padding: 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px #00000015;
+}
+
+.progress-text {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    height: 18px;
+    background: #e6e6e6;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: #55c878;
+    transition: 0.4s;
+}
+
+.section {
+    background: white;
+    border-radius: 22px;
+    padding: 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 15px #00000012;
+}
+
+.section h2 {
+    margin-top: 0;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f3f5f8;
+    border: 2px solid transparent;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 9px 0;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.2s;
+    user-select: none;
+}
+
+.task:active {
+    transform: scale(0.98);
+}
+
+.check {
+    width: 29px;
+    height: 29px;
+    min-width: 29px;
+    border: 3px solid #9da6b4;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task.done {
+    background: #d9f8df;
+    border-color: #65ce7b;
+    color: #17682a;
+}
+
+.task.done .check {
+    background: #50c96c;
+    border-color: #50c96c;
+    color: white;
+}
+
+.task.done .check::after {
+    content: "✓";
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.reward {
+    background: #fff5c7;
+    border-radius: 22px;
+    padding: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.reward h2 {
+    margin-top: 0;
+}
+
+#celebration {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(18, 30, 65, 0.94);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+}
+
+.celebration-card {
+    background: white;
+    border-radius: 30px;
+    padding: 30px 20px;
+    max-width: 450px;
+    width: 100%;
+}
+
+.alien {
+    font-size: 100px;
+    animation: bounce 0.8s infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0) rotate(-5deg); }
+    to { transform: translateY(-15px) rotate(5deg); }
+}
+
+.big {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.small {
+    color: #667085;
+}
+
+button {
+    border: none;
+    background: #5468ff;
+    color: white;
+    padding: 14px 25px;
+    border-radius: 15px;
+    font-size: 17px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<h1>💙 Min dag 💙</h1>
+<div class="date" id="date"></div>
+
+<div class="progress-box">
+    <div class="progress-text" id="progressText">0 opgaver klaret</div>
+
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+</div>
+
+
+<div class="section">
+<h2>🌅 Morgen</h2>
+
+<div class="task"><div class="check"></div>Fjern søvn fra øjnene</div>
+<div class="task"><div class="check"></div>Red/børst håret</div>
+<div class="task"><div class="check"></div>Børst tænder</div>
+<div class="task"><div class="check"></div>Tag tøj på</div>
+<div class="task"><div class="check"></div>Spis morgenmad</div>
+<div class="task"><div class="check"></div>Gå på toilettet 🚽</div>
+<div class="task"><div class="check"></div>Put madpakken i tasken</div>
+<div class="task"><div class="check"></div>Tjek at skoletasken er klar 🎒</div>
+
+</div>
+
+
+<div class="section">
+<h2>🎒 Efter skole</h2>
+
+<div class="task"><div class="check"></div>Tag madpakken op af tasken</div>
+<div class="task"><div class="check"></div>Gå på toilettet 🚽</div>
+<div class="task"><div class="check"></div>Lav lektier 📚</div>
+<div class="task"><div class="check"></div>Ryd op efter dig på værelset</div>
+
+<div class="task tuesday">
+<div class="check"></div>
+Gymnastiktøj til vask 👕
+</div>
+
+</div>
+
+
+<div class="section">
+<h2>☀️ Senere på dagen</h2>
+
+<div class="task"><div class="check"></div>Gå på toilettet 🚽</div>
+
+</div>
+
+
+<div class="section">
+<h2>🌙 Sengetid</h2>
+
+<div class="task"><div class="check"></div>Gå på toilettet 🚽</div>
+<div class="task"><div class="check"></div>Børst tænder</div>
+<div class="task"><div class="check"></div>Tag nattøj på</div>
+<div class="task"><div class="check"></div>Red/børst håret</div>
+<div class="task"><div class="check"></div>Tag vand med ind 💧</div>
+
+</div>
+
+
+<div class="reward">
+
+<h2>⭐ Mine belønninger ⭐</h2>
+
+<p>⭐⭐⭐⭐⭐<br>
+<b>5 gode dage</b><br>
+Vælg en snack 🍿</p>
+
+<p>⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐<br>
+<b>10 gode dage</b><br>
+Vælg 2 snacks eller en familiefilm 🎬</p>
+
+<p>🏆 <b>20 gode dage</b><br>
+En aftalt belønning 🎁</p>
+
+</div>
+
+</div>
+
+
+<div id="celebration">
+
+<div class="celebration-card">
+
+<div class="alien" id="alien">👾</div>
+
+<div class="big">
+DU KLAREDE HELE DAGEN!
+</div>
+
+<p id="alienMessage">
+Rumvæsnet er imponeret! 💙
+</p>
+
+<button onclick="closeCelebration()">
+Fedt! ⭐
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+const tasks = document.querySelectorAll(".task");
+const today = new Date();
+
+
+// DATO
+
+const dateText = today.toLocaleDateString("da-DK", {
+    weekday: "long",
+    day: "numeric",
+    month: "long"
+});
+
+document.getElementById("date").textContent = dateText;
+
+
+// KUN GYMNASTIKTØJ OM TIRSDAGEN
+
+const day = today.getDay();
+
+document.querySelectorAll(".tuesday").forEach(task => {
+
+    if(day !== 2) {
+        task.style.display = "none";
+    }
+
+});
+
+
+// GEMMER FLUEBEN PÅ ENHEDEN
+
+const dateKey =
+    today.getFullYear() + "-" +
+    (today.getMonth() + 1) + "-" +
+    today.getDate();
+
+const storageKey = "routine-" + dateKey;
+
+
+// HENT GEMTE OPGAVER
+
+let saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
+
+tasks.forEach((task, index) => {
+
+    if(saved.includes(index)) {
+        task.classList.add("done");
+    }
+
+    task.addEventListener("click", () => {
+
+        task.classList.toggle("done");
+
+        saveTasks();
+        updateProgress();
+
+    });
+
+});
+
+
+// GEM
+
+function saveTasks() {
+
+    let completed = [];
+
+    tasks.forEach((task, index) => {
+
+        if(task.classList.contains("done")) {
+            completed.push(index);
+        }
+
+    });
+
+    localStorage.setItem(storageKey, JSON.stringify(completed));
+
+}
+
+
+// FREMSKRIDT
+
+function updateProgress() {
+
+    const visibleTasks =
+        [...tasks].filter(t => t.style.display !== "none");
+
+    const completed =
+        visibleTasks.filter(t => t.classList.contains("done"));
+
+    const total = visibleTasks.length;
+    const done = completed.length;
+
+    document.getElementById("progressText").textContent =
+        done + " / " + total + " klaret ⭐";
+
+    const percentage =
+        total === 0 ? 0 : (done / total) * 100;
+
+    document.getElementById("progress").style.width =
+        percentage + "%";
+
+
+    if(done === total && total > 0) {
+
+        const celebrationKey = "celebrated-" + dateKey;
+
+        if(!localStorage.getItem(celebrationKey)) {
+
+            localStorage.setItem(celebrationKey, "yes");
+
+            setTimeout(showCelebration, 400);
+
+        }
+
+    }
+
+}
+
+
+// BLÅ RUMVÆSEN-BESKEDER
+
+const aliens = [
+    {
+        icon: "👾",
+        text: "BIP BIP! Du gennemførte hele missionen! 💙"
+    },
+    {
+        icon: "🛸",
+        text: "Mission fuldført! Rumskibet er klar til afgang! 🚀"
+    },
+    {
+        icon: "👽",
+        text: "WOW! Selv rumvæsnerne er imponerede! ⭐"
+    },
+    {
+        icon: "🪐",
+        text: "Du har klaret ALLE dagens opgaver! 🌟"
+    },
+    {
+        icon: "🚀",
+        text: "3... 2... 1... DAGEN ER GENNEMFØRT! 💙"
+    }
+];
+
+
+function showCelebration() {
+
+    const random =
+        aliens[Math.floor(Math.random() * aliens.length)];
+
+    document.getElementById("alien").textContent =
+        random.icon;
+
+    document.getElementById("alienMessage").textContent =
+        random.text;
+
+    document.getElementById("celebration").style.display =
+        "flex";
+
+}
+
+
+function closeCelebration() {
+
+    document.getElementById("celebration").style.display =
+        "none";
+
+}
+
+
+updateProgress();
+
+</script>
+
+</body>
+</html>
