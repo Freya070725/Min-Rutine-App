@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Min Rutine 💙</title>
+<title>Min dag 💙</title>
 
 <style>
 * {
@@ -13,46 +13,88 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(#dff5ff, #f6eaff);
-    color: #25324a;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top left, #d7f5ff 0%, transparent 35%),
+        radial-gradient(circle at top right, #eee0ff 0%, transparent 40%),
+        linear-gradient(180deg, #dff4ff 0%, #f8edff 100%);
+    color: #19346b;
+    min-height: 100vh;
 }
 
 .app {
-    max-width: 650px;
-    margin: auto;
-    padding: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 18px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.header-emoji {
+    font-size: 58px;
 }
 
 h1 {
-    text-align: center;
-    font-size: 34px;
-    margin-bottom: 5px;
+    margin: 4px 0;
+    font-size: 38px;
+    color: #13368d;
 }
 
 .date {
+    font-size: 18px;
+    font-weight: bold;
+    color: #43548a;
+}
+
+.subtitle {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #6a6790;
+}
+
+.message-card {
+    background: linear-gradient(135deg, #fff7cc, #fff0fa);
+    border-radius: 22px;
+    padding: 16px;
+    margin: 16px 0;
+    box-shadow: 0 5px 18px #5264a51c;
     text-align: center;
-    color: #65718a;
-    margin-bottom: 20px;
+    border: 2px solid #ffffffcc;
+}
+
+.message-card h3 {
+    margin: 0 0 8px;
+    color: #a95b86;
+}
+
+#dailyMessage {
+    font-size: 18px;
+    font-weight: bold;
+    color: #34427c;
 }
 
 .progress-box {
     background: white;
+    border-radius: 22px;
     padding: 16px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 15px #00000015;
+    margin-bottom: 18px;
+    box-shadow: 0 5px 18px #5264a51c;
 }
 
-.progress-text {
-    text-align: center;
+.progress-row {
+    display: flex;
+    justify-content: space-between;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .progress-bar {
+    width: 100%;
     height: 18px;
-    background: #e6e6e6;
+    background: #e7e8f4;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -60,56 +102,86 @@ h1 {
 .progress {
     height: 100%;
     width: 0%;
-    background: #55c878;
-    transition: 0.4s;
+    background: linear-gradient(90deg, #ff9ed4, #8f8cff, #6fd0ff);
+    transition: width 0.4s ease;
 }
 
 .section {
-    background: white;
-    border-radius: 22px;
-    padding: 18px;
+    background: rgba(255,255,255,0.93);
+    border-radius: 24px;
+    padding: 16px;
     margin-bottom: 18px;
-    box-shadow: 0 4px 15px #00000012;
+    box-shadow: 0 5px 18px #5264a51c;
+    border: 2px solid rgba(255,255,255,0.85);
+}
+
+.section.morning {
+    background: linear-gradient(135deg, #fff4fb, #f6ebff);
+}
+
+.section.afterschool {
+    background: linear-gradient(135deg, #ebfff5, #f4fffb);
+}
+
+.section.dinner {
+    background: linear-gradient(135deg, #fff5e3, #fff9ee);
+}
+
+.section.bedtime {
+    background: linear-gradient(135deg, #eee9ff, #f8efff);
 }
 
 .section h2 {
-    margin-top: 0;
+    margin: 0 0 12px;
+    font-size: 25px;
 }
 
 .task {
     display: flex;
     align-items: center;
     gap: 12px;
-    background: #f3f5f8;
-    border: 2px solid transparent;
-    padding: 15px;
-    border-radius: 15px;
-    margin: 9px 0;
-    cursor: pointer;
+    background: rgba(255,255,255,0.8);
+    border: 2px solid #ffffff;
+    padding: 13px 14px;
+    border-radius: 17px;
+    margin: 8px 0;
     font-size: 18px;
-    transition: 0.2s;
+    cursor: pointer;
+    transition: 0.18s ease;
     user-select: none;
 }
 
+.task:hover {
+    transform: translateY(-1px);
+}
+
 .task:active {
-    transform: scale(0.98);
+    transform: scale(0.985);
+}
+
+.task-icon {
+    font-size: 24px;
+    width: 34px;
+    text-align: center;
 }
 
 .check {
     width: 29px;
     height: 29px;
     min-width: 29px;
-    border: 3px solid #9da6b4;
+    border: 3px solid #b0b7d0;
     border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    background: white;
 }
 
 .task.done {
-    background: #d9f8df;
-    border-color: #65ce7b;
-    color: #17682a;
+    background: linear-gradient(135deg, #d9f8df, #ecfff0);
+    border-color: #78d78a;
+    color: #146428;
+    font-weight: bold;
 }
 
 .task.done .check {
@@ -120,68 +192,99 @@ h1 {
 
 .task.done .check::after {
     content: "✓";
-    font-weight: bold;
     font-size: 20px;
+    font-weight: bold;
 }
 
-.reward {
-    background: #fff5c7;
-    border-radius: 22px;
+.reward-card {
+    background: linear-gradient(135deg, #fff7dc, #fff1fd);
+    border-radius: 24px;
     padding: 18px;
-    text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 18px #5264a51c;
 }
 
-.reward h2 {
+.reward-card h2 {
+    text-align: center;
     margin-top: 0;
+}
+
+.reward-item {
+    background: rgba(255,255,255,0.86);
+    padding: 14px;
+    border-radius: 17px;
+    margin: 10px 0;
+}
+
+.reward-stars {
+    font-size: 22px;
+}
+
+.footer-message {
+    text-align: center;
+    font-weight: bold;
+    color: #5b5eaa;
+    margin: 20px 0 40px;
+    font-size: 18px;
 }
 
 #celebration {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(18, 30, 65, 0.94);
-    z-index: 100;
+    background:
+        radial-gradient(circle at center, #3549a8, #111536 70%);
+    z-index: 999;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 25px;
+    padding: 22px;
 }
 
 .celebration-card {
+    width: 100%;
+    max-width: 470px;
     background: white;
     border-radius: 30px;
-    padding: 30px 20px;
-    max-width: 450px;
-    width: 100%;
+    padding: 28px 20px;
+    text-align: center;
+    box-shadow: 0 0 35px #8aa0ff88;
 }
 
 .alien {
-    font-size: 100px;
-    animation: bounce 0.8s infinite alternate;
+    font-size: 95px;
+    animation: bounce 0.75s infinite alternate;
 }
 
 @keyframes bounce {
-    from { transform: translateY(0) rotate(-5deg); }
-    to { transform: translateY(-15px) rotate(5deg); }
+    from {
+        transform: translateY(0) rotate(-6deg);
+    }
+    to {
+        transform: translateY(-15px) rotate(6deg);
+    }
 }
 
-.big {
-    font-size: 28px;
+.celebration-title {
+    font-size: 29px;
     font-weight: bold;
+    color: #173990;
+    margin: 8px 0;
 }
 
-.small {
-    color: #667085;
+.celebration-message {
+    font-size: 18px;
+    color: #586292;
+    margin-bottom: 18px;
 }
 
 button {
-    border: none;
-    background: #5468ff;
+    border: 0;
+    border-radius: 16px;
+    background: linear-gradient(90deg, #8f67ff, #596fff);
     color: white;
-    padding: 14px 25px;
-    border-radius: 15px;
-    font-size: 17px;
+    padding: 14px 26px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
 }
 </style>
@@ -191,119 +294,241 @@ button {
 
 <div class="app">
 
-<h1>💙 Min dag 💙</h1>
-<div class="date" id="date"></div>
-
-<div class="progress-box">
-    <div class="progress-text" id="progressText">0 opgaver klaret</div>
-
-    <div class="progress-bar">
-        <div class="progress" id="progress"></div>
+    <div class="header">
+        <div class="header-emoji">👽💙</div>
+        <h1>Min dag</h1>
+        <div class="date" id="date"></div>
+        <div class="subtitle">
+            Små skridt hver dag gør en stor forskel ✨
+        </div>
     </div>
-</div>
 
 
-<div class="section">
-<h2>🌅 Morgen</h2>
-
-<div class="task"><div class="check"></div>Fjern søvn fra øjnene</div>
-<div class="task"><div class="check"></div>Red/børst håret</div>
-<div class="task"><div class="check"></div>Børst tænder</div>
-<div class="task"><div class="check"></div>Tag tøj på</div>
-<div class="task"><div class="check"></div>Spis morgenmad</div>
-<div class="task"><div class="check"></div>Gå på toilettet 🚽</div>
-<div class="task"><div class="check"></div>Put madpakken i tasken</div>
-<div class="task"><div class="check"></div>Tjek at skoletasken er klar 🎒</div>
-
-</div>
+    <div class="message-card">
+        <h3>💗 Dagens besked</h3>
+        <div id="dailyMessage"></div>
+    </div>
 
 
-<div class="section">
-<h2>🎒 Efter skole</h2>
+    <div class="progress-box">
+        <div class="progress-row">
+            <span>⭐ Dagens fremskridt</span>
+            <span id="progressText">0 / 0 klaret</span>
+        </div>
 
-<div class="task"><div class="check"></div>Tag madpakken op af tasken</div>
-<div class="task"><div class="check"></div>Gå på toilettet 🚽</div>
-<div class="task"><div class="check"></div>Lav lektier 📚</div>
-<div class="task"><div class="check"></div>Ryd op efter dig på værelset</div>
-
-<div class="task tuesday">
-<div class="check"></div>
-Gymnastiktøj til vask 👕
-</div>
-
-</div>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+    </div>
 
 
-<div class="section">
-<h2>☀️ Senere på dagen</h2>
+    <div class="section morning">
+        <h2>☀️ Morgen</h2>
 
-<div class="task"><div class="check"></div>Gå på toilettet 🚽</div>
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">👁️</div>
+            <div>Fjern søvn fra øjnene</div>
+        </div>
 
-</div>
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🪮</div>
+            <div>Red håret</div>
+        </div>
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🪥</div>
+            <div>Børst tænder</div>
+        </div>
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">👕</div>
+            <div>Tag tøj på</div>
+        </div>
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🥣</div>
+            <div>Spis morgenmad</div>
+        </div>
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🚽</div>
+            <div>Gå på toilettet</div>
+        </div>
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🍱</div>
+            <div>Put madpakken i tasken</div>
+        </div>
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🎒</div>
+            <div>Tjek at skoletasken er klar</div>
+        </div>
+    </div>
 
 
-<div class="section">
-<h2>🌙 Sengetid</h2>
+    <div class="section afterschool">
+        <h2>🎒 Efter skole</h2>
 
-<div class="task"><div class="check"></div>Gå på toilettet 🚽</div>
-<div class="task"><div class="check"></div>Børst tænder</div>
-<div class="task"><div class="check"></div>Tag nattøj på</div>
-<div class="task"><div class="check"></div>Red/børst håret</div>
-<div class="task"><div class="check"></div>Tag vand med ind 💧</div>
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🍱</div>
+            <div>Tag madpakken op af tasken</div>
+        </div>
 
-</div>
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🚽</div>
+            <div>Gå på toilettet</div>
+        </div>
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">📚</div>
+            <div>Lav lektier</div>
+        </div>
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🧺</div>
+            <div>Ryd op efter dig på værelset</div>
+        </div>
+
+        <div class="task tuesday">
+            <div class="check"></div>
+            <div class="task-icon">👚</div>
+            <div>Gymnastiktøj til vask</div>
+        </div>
+    </div>
 
 
-<div class="reward">
+    <div class="section dinner">
+        <h2>🍽️ Efter aftensmad</h2>
 
-<h2>⭐ Mine belønninger ⭐</h2>
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🚽</div>
+            <div>Gå på toilettet</div>
+        </div>
 
-<p>⭐⭐⭐⭐⭐<br>
-<b>5 gode dage</b><br>
-Vælg en snack 🍿</p>
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🧼</div>
+            <div>Vask hænder</div>
+        </div>
 
-<p>⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐<br>
-<b>10 gode dage</b><br>
-Vælg 2 snacks eller en familiefilm 🎬</p>
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">💦</div>
+            <div>Vask mund</div>
+        </div>
+    </div>
 
-<p>🏆 <b>20 gode dage</b><br>
-En aftalt belønning 🎁</p>
 
-</div>
+    <div class="section bedtime">
+        <h2>🌙 Sengetid</h2>
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🚽</div>
+            <div>Gå på toilettet</div>
+        </div>
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🪥</div>
+            <div>Børst tænder</div>
+        </div>
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🩵</div>
+            <div>Tag nattøj på</div>
+        </div>
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🪮</div>
+            <div>Red håret</div>
+        </div>
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">💧</div>
+            <div>Tag vand med ind</div>
+        </div>
+    </div>
+
+
+    <div class="reward-card">
+        <h2>🏆 Mine belønninger ✨</h2>
+
+        <div class="reward-item">
+            <div class="reward-stars">⭐⭐⭐⭐⭐</div>
+            <b>5 gode dage</b><br>
+            Vælg en snack 🍿
+        </div>
+
+        <div class="reward-item">
+            <div class="reward-stars">⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</div>
+            <b>10 gode dage</b><br>
+            Vælg 2 snacks eller en familiefilm 🎬
+        </div>
+
+        <div class="reward-item">
+            <div class="reward-stars">👑</div>
+            <b>20 gode dage</b><br>
+            En aftalt belønning 🎁
+        </div>
+    </div>
+
+
+    <div class="footer-message">
+        💗 Du kan godt! 💙
+    </div>
 
 </div>
 
 
 <div id="celebration">
+    <div class="celebration-card">
 
-<div class="celebration-card">
+        <div class="alien" id="alien">👽</div>
 
-<div class="alien" id="alien">👾</div>
+        <div class="celebration-title">
+            DU KLAREDE HELE DAGEN! ⭐
+        </div>
 
-<div class="big">
-DU KLAREDE HELE DAGEN!
-</div>
+        <div class="celebration-message" id="celebrationMessage">
+            Hvor er du sej! 💙
+        </div>
 
-<p id="alienMessage">
-Rumvæsnet er imponeret! 💙
-</p>
+        <button onclick="closeCelebration()">
+            Fedt! ⭐
+        </button>
 
-<button onclick="closeCelebration()">
-Fedt! ⭐
-</button>
-
-</div>
-
+    </div>
 </div>
 
 
 <script>
 
-const tasks = document.querySelectorAll(".task");
 const today = new Date();
 
+const tasks = document.querySelectorAll(".task");
 
+
+// ----------------------
 // DATO
+// ----------------------
 
 const dateText = today.toLocaleDateString("da-DK", {
     weekday: "long",
@@ -314,36 +539,76 @@ const dateText = today.toLocaleDateString("da-DK", {
 document.getElementById("date").textContent = dateText;
 
 
-// KUN GYMNASTIKTØJ OM TIRSDAGEN
+// ----------------------
+// DAGENS BESKED
+// ----------------------
 
-const day = today.getDay();
+const messages = [
+    "Vi elsker dig! 💙",
+    "Hvor er du sej! 🌟",
+    "Godt gået, du gjorde det! 🎉",
+    "En dag tættere på en belønning! ⭐",
+    "Du klarer det bare så godt! 💖",
+    "Små skridt gør en stor forskel! 🌈",
+    "Du er fantastisk! 💙",
+    "Du er stærk, modig og sej! 🚀",
+    "Vi er stolte af dig! 💕",
+    "Endnu en dag, hvor du gør dit bedste! 🎯",
+    "Du kan mere, end du tror! ✨",
+    "Se lige hvor godt du klarer det! 💙",
+    "Du gør det så flot! 🌸",
+    "En ting ad gangen - du har styr på det! ⭐",
+    "Du er på vej mod noget stort! 💙"
+];
+
+
+// Samme besked hele dagen.
+// Den skifter automatisk næste dag.
+
+const dayNumber = Math.floor(
+    today.getTime() / 86400000
+);
+
+const todaysMessage =
+    messages[dayNumber % messages.length];
+
+document.getElementById("dailyMessage").textContent =
+    todaysMessage;
+
+
+// ----------------------
+// TIRSDAG
+// ----------------------
+
+const weekday = today.getDay();
 
 document.querySelectorAll(".tuesday").forEach(task => {
 
-    if(day !== 2) {
+    if (weekday !== 2) {
         task.style.display = "none";
     }
 
 });
 
 
-// GEMMER FLUEBEN PÅ ENHEDEN
+// ----------------------
+// GEM DAGENS FLUEBEN
+// ----------------------
 
 const dateKey =
     today.getFullYear() + "-" +
-    (today.getMonth() + 1) + "-" +
-    today.getDate();
+    String(today.getMonth() + 1).padStart(2, "0") + "-" +
+    String(today.getDate()).padStart(2, "0");
 
-const storageKey = "routine-" + dateKey;
+const storageKey =
+    "routine-tasks-" + dateKey;
 
-
-// HENT GEMTE OPGAVER
-
-let saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
+let savedTasks =
+    JSON.parse(localStorage.getItem(storageKey) || "[]");
 
 tasks.forEach((task, index) => {
 
-    if(saved.includes(index)) {
+    if (savedTasks.includes(index)) {
         task.classList.add("done");
     }
 
@@ -359,57 +624,87 @@ tasks.forEach((task, index) => {
 });
 
 
+// ----------------------
 // GEM
+// ----------------------
 
 function saveTasks() {
 
-    let completed = [];
+    const completed = [];
 
     tasks.forEach((task, index) => {
 
-        if(task.classList.contains("done")) {
+        if (task.classList.contains("done")) {
             completed.push(index);
         }
 
     });
 
-    localStorage.setItem(storageKey, JSON.stringify(completed));
+    localStorage.setItem(
+        storageKey,
+        JSON.stringify(completed)
+    );
 
 }
 
 
+// ----------------------
 // FREMSKRIDT
+// ----------------------
 
 function updateProgress() {
 
     const visibleTasks =
-        [...tasks].filter(t => t.style.display !== "none");
+        [...tasks].filter(task =>
+            task.style.display !== "none"
+        );
 
-    const completed =
-        visibleTasks.filter(t => t.classList.contains("done"));
+    const completedTasks =
+        visibleTasks.filter(task =>
+            task.classList.contains("done")
+        );
 
-    const total = visibleTasks.length;
-    const done = completed.length;
+    const total =
+        visibleTasks.length;
+
+    const done =
+        completedTasks.length;
 
     document.getElementById("progressText").textContent =
-        done + " / " + total + " klaret ⭐";
+        done + " / " + total + " klaret";
 
     const percentage =
-        total === 0 ? 0 : (done / total) * 100;
+        total === 0
+        ? 0
+        : (done / total) * 100;
 
     document.getElementById("progress").style.width =
         percentage + "%";
 
 
-    if(done === total && total > 0) {
+    if (
+        total > 0 &&
+        done === total
+    ) {
 
-        const celebrationKey = "celebrated-" + dateKey;
+        const celebrationKey =
+            "celebrated-" + dateKey;
 
-        if(!localStorage.getItem(celebrationKey)) {
+        if (
+            !localStorage.getItem(celebrationKey)
+        ) {
 
-            localStorage.setItem(celebrationKey, "yes");
+            localStorage.setItem(
+                celebrationKey,
+                "yes"
+            );
 
-            setTimeout(showCelebration, 400);
+            registerGoodDay();
+
+            setTimeout(
+                showCelebration,
+                400
+            );
 
         }
 
@@ -418,44 +713,82 @@ function updateProgress() {
 }
 
 
-// BLÅ RUMVÆSEN-BESKEDER
+// ----------------------
+// GODE DAGE
+// ----------------------
 
-const aliens = [
-    {
-        icon: "👾",
-        text: "BIP BIP! Du gennemførte hele missionen! 💙"
-    },
-    {
-        icon: "🛸",
-        text: "Mission fuldført! Rumskibet er klar til afgang! 🚀"
-    },
-    {
-        icon: "👽",
-        text: "WOW! Selv rumvæsnerne er imponerede! ⭐"
-    },
-    {
-        icon: "🪐",
-        text: "Du har klaret ALLE dagens opgaver! 🌟"
-    },
-    {
-        icon: "🚀",
-        text: "3... 2... 1... DAGEN ER GENNEMFØRT! 💙"
+function registerGoodDay() {
+
+    let goodDays =
+        JSON.parse(
+            localStorage.getItem("good-days") || "[]"
+        );
+
+    if (!goodDays.includes(dateKey)) {
+
+        goodDays.push(dateKey);
+
+        localStorage.setItem(
+            "good-days",
+            JSON.stringify(goodDays)
+        );
+
     }
+
+}
+
+
+// ----------------------
+// FEJRING
+// ----------------------
+
+const celebrationMessages = [
+    "Hvor er du sej! 💙",
+    "Godt gået - du gjorde det! 🎉",
+    "WOW! Hele dagen er klaret! ⭐",
+    "Vi er stolte af dig! 💕",
+    "Endnu en dag gennemført! 🚀",
+    "Du gjorde det hele! 🌟",
+    "Mega godt klaret! 💙",
+    "En dag tættere på en belønning! 🎁"
 ];
 
+const aliens = [
+    "👽",
+    "👾",
+    "🛸",
+    "🚀",
+    "🪐"
+];
 
 function showCelebration() {
 
-    const random =
-        aliens[Math.floor(Math.random() * aliens.length)];
+    const randomAlien =
+        aliens[
+            Math.floor(
+                Math.random() * aliens.length
+            )
+        ];
+
+    const randomMessage =
+        celebrationMessages[
+            Math.floor(
+                Math.random() *
+                celebrationMessages.length
+            )
+        ];
 
     document.getElementById("alien").textContent =
-        random.icon;
+        randomAlien;
 
-    document.getElementById("alienMessage").textContent =
-        random.text;
+    document.getElementById(
+        "celebrationMessage"
+    ).textContent =
+        randomMessage;
 
-    document.getElementById("celebration").style.display =
+    document.getElementById(
+        "celebration"
+    ).style.display =
         "flex";
 
 }
@@ -463,7 +796,9 @@ function showCelebration() {
 
 function closeCelebration() {
 
-    document.getElementById("celebration").style.display =
+    document.getElementById(
+        "celebration"
+    ).style.display =
         "none";
 
 }
