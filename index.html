@@ -34,7 +34,21 @@ body {
 }
 
 .header-emoji {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     font-size: 60px;
+}
+
+.header-photo {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    border-radius: 18px;
+    background: white;
+    padding: 3px;
+    box-shadow: 0 4px 12px rgba(83, 61, 119, 0.20);
 }
 
 h1 {
@@ -451,7 +465,10 @@ button {
 <div class="app">
 
     <div class="header">
-        <div class="header-emoji">🦄💗</div>
+       <div class="header-emoji">
+    <span>🦄💗</span>
+    <img src="familie.jpeg" class="header-photo" alt="Familie">
+</div>
         <h1>Min dag</h1>
 
         <div class="subtitle">
