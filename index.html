@@ -218,6 +218,12 @@ h1 {
     font-size: 21px;
     font-weight: bold;
     color: #9a4d8a;
+    cursor: pointer;
+    user-select: none;
+}
+
+.reward-total:active {
+    transform: scale(0.99);
 }
 
 .reward-item {
@@ -247,6 +253,82 @@ h1 {
     margin: 20px 0 40px;
     font-size: 18px;
 }
+
+button {
+    border: 0;
+    border-radius: 16px;
+    background: linear-gradient(90deg, #d766b4, #9f72ff);
+    color: white;
+    padding: 14px 26px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* FORÆLDRE */
+
+.parent-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(38,28,69,.72);
+    z-index: 1200;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.parent-card {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    border-radius: 28px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(38,28,69,.3);
+}
+
+.parent-card h2 {
+    margin-top: 0;
+    color: #a3448c;
+}
+
+.parent-card input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #d8cbea;
+    border-radius: 14px;
+    font-size: 22px;
+    text-align: center;
+    margin: 10px 0 14px;
+}
+
+.parent-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.parent-actions button {
+    min-width: 105px;
+}
+
+.secondary-btn {
+    background: #8f86a0;
+}
+
+.danger-btn {
+    background: linear-gradient(90deg, #d75b75, #b54f75);
+}
+
+.parent-note {
+    color: #756589;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+/* FEJRING */
 
 #celebration {
     display: none;
@@ -279,6 +361,7 @@ h1 {
     from {
         transform: translateY(0) rotate(-6deg);
     }
+
     to {
         transform: translateY(-15px) rotate(6deg);
     }
@@ -298,16 +381,6 @@ h1 {
     line-height: 1.45;
 }
 
-button {
-    border: 0;
-    border-radius: 16px;
-    background: linear-gradient(90deg, #d766b4, #9f72ff);
-    color: white;
-    padding: 14px 26px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-}
 </style>
 </head>
 
@@ -318,18 +391,23 @@ button {
     <div class="header">
         <div class="header-emoji">🦄💗</div>
         <h1>Min dag</h1>
+
         <div class="date" id="date"></div>
+
         <div class="subtitle">
             Små skridt hver dag gør en stor forskel ✨
         </div>
     </div>
+
 
     <div class="message-card">
         <h3>💌 En besked til dig</h3>
         <div id="dailyMessage"></div>
     </div>
 
+
     <div class="progress-box">
+
         <div class="progress-row">
             <span>⭐ Dagens fremskridt</span>
             <span id="progressText">0 / 0 klaret</span>
@@ -338,10 +416,15 @@ button {
         <div class="progress-bar">
             <div class="progress" id="progress"></div>
         </div>
+
     </div>
 
+
+    <!-- MORGEN -->
+
     <div class="section morning">
-        <h2>☀️ Morgen</h2>
+
+        <h2 id="morningTitle">☀️ Morgen</h2>
 
         <div class="task">
             <div class="check"></div>
@@ -353,6 +436,12 @@ button {
             <div class="check"></div>
             <div class="task-icon">🪮</div>
             <div>Red håret</div>
+        </div>
+
+        <div class="task tue-wed">
+            <div class="check"></div>
+            <div class="task-icon">🎀</div>
+            <div>Sæt håret op til skole</div>
         </div>
 
         <div class="task">
@@ -367,6 +456,12 @@ button {
             <div>Tag tøj på</div>
         </div>
 
+        <div class="task wednesday">
+            <div class="check"></div>
+            <div class="task-icon">🎨</div>
+            <div>Tag tøj på, som må blive beskidt</div>
+        </div>
+
         <div class="task">
             <div class="check"></div>
             <div class="task-icon">🥣</div>
@@ -379,20 +474,25 @@ button {
             <div>Gå på toilettet</div>
         </div>
 
-        <div class="task">
+        <div class="task weekday-only">
             <div class="check"></div>
             <div class="task-icon">🍱</div>
             <div>Put madpakken i tasken</div>
         </div>
 
-        <div class="task">
+        <div class="task weekday-only">
             <div class="check"></div>
             <div class="task-icon">🎒</div>
             <div>Tjek at skoletasken er klar</div>
         </div>
+
     </div>
 
-    <div class="section afterschool">
+
+    <!-- EFTER SKOLE -->
+
+    <div class="section afterschool weekday-section">
+
         <h2>🎒 Efter skole</h2>
 
         <div class="task">
@@ -424,9 +524,35 @@ button {
             <div class="task-icon">👚</div>
             <div>Gymnastiktøj til vask</div>
         </div>
+
     </div>
 
+
+    <!-- WEEKEND -->
+
+    <div class="section afterschool weekend-section">
+
+        <h2>🌈 I løbet af dagen</h2>
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🚽</div>
+            <div>Gå på toilettet</div>
+        </div>
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">🧺</div>
+            <div>Ryd op efter dig på værelset</div>
+        </div>
+
+    </div>
+
+
+    <!-- EFTER AFTENSMAD -->
+
     <div class="section dinner">
+
         <h2>🍽️ Efter aftensmad</h2>
 
         <div class="task">
@@ -446,9 +572,14 @@ button {
             <div class="task-icon">💦</div>
             <div>Vask mund</div>
         </div>
+
     </div>
 
+
+    <!-- SENGETID -->
+
     <div class="section bedtime">
+
         <h2>🌙 Sengetid</h2>
 
         <div class="task">
@@ -480,37 +611,95 @@ button {
             <div class="task-icon">💧</div>
             <div>Tag vand med ind</div>
         </div>
+
+
+        <!-- SØNDAG - TORSDAG -->
+
+        <div class="task sun-thu">
+            <div class="check"></div>
+            <div class="task-icon">🍱</div>
+            <div>Lav madpakke til i morgen</div>
+        </div>
+
+
+        <!-- MANDAG -->
+
+        <div class="task monday">
+            <div class="check"></div>
+            <div class="task-icon">🤸</div>
+            <div>Pak gymnastiktøj, så det er klar til tirsdag</div>
+        </div>
+
+
+        <!-- HVER AFTEN -->
+
+        <div class="task">
+            <div class="check"></div>
+            <div class="task-icon">📱</div>
+            <div>Læg mobilen til opladning</div>
+        </div>
+
     </div>
 
+
+    <!-- BELØNNINGER -->
+
     <div class="reward-card">
+
         <h2>🏆 Mine belønninger ✨</h2>
 
-        <div class="reward-total">
-            ⭐ Gode dage i alt:
+        <div class="reward-total" id="starCounter">
+            ⭐ Stjerner i alt:
             <span id="goodDaysCount">0</span>
         </div>
 
+
         <div class="reward-item">
-            <div class="reward-stars">⭐⭐⭐⭐⭐</div>
-            <b>5 gode dage</b><br>
-            Vælg en snack 🍿<br>
+
+            <div class="reward-stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <b>5 stjerner</b><br>
+
+            En snack 🍿<br>
+
             <span class="days-left" id="daysTo5"></span>
+
         </div>
 
+
         <div class="reward-item">
-            <div class="reward-stars">⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</div>
-            <b>10 gode dage</b><br>
-            Vælg 2 snacks eller en familiefilm 🎬<br>
+
+            <div class="reward-stars">
+                ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+            </div>
+
+            <b>10 stjerner</b><br>
+
+            En snack og en film 🎬<br>
+
             <span class="days-left" id="daysTo10"></span>
+
         </div>
 
+
         <div class="reward-item">
-            <div class="reward-stars">👑</div>
-            <b>20 gode dage</b><br>
-            En aftalt belønning 🎁<br>
+
+            <div class="reward-stars">
+                👑
+            </div>
+
+            <b>20 stjerner</b><br>
+
+            Overraskelse 🎁<br>
+
             <span class="days-left" id="daysTo20"></span>
+
         </div>
+
     </div>
+
 
     <div class="footer-message">
         🦄 Du kan godt! 💗
@@ -518,16 +707,134 @@ button {
 
 </div>
 
+
+<!-- FORÆLDRE -->
+
+<div class="parent-overlay" id="parentOverlay">
+
+    <div class="parent-card">
+
+        <div id="parentLogin">
+
+            <h2>🔒 Forældre</h2>
+
+            <p>Indtast forældrekoden</p>
+
+            <input
+                id="parentPin"
+                type="password"
+                inputmode="numeric"
+                maxlength="4"
+                placeholder="••••"
+            >
+
+            <div class="parent-actions">
+
+                <button onclick="unlockParent()">
+                    Lås op
+                </button>
+
+                <button
+                    class="secondary-btn"
+                    onclick="closeParent()"
+                >
+                    Luk
+                </button>
+
+            </div>
+
+            <div
+                class="parent-note"
+                id="pinMessage"
+            ></div>
+
+        </div>
+
+
+        <div
+            id="parentControls"
+            style="display:none"
+        >
+
+            <h2>⭐ Juster stjerner</h2>
+
+            <p>
+                Stjerner lige nu:
+                <b id="parentStarCount">0</b>
+            </p>
+
+
+            <div class="parent-actions">
+
+                <button
+                    class="danger-btn"
+                    onclick="adjustStars(-1)"
+                >
+                    − 1 stjerne
+                </button>
+
+                <button onclick="adjustStars(1)">
+                    + 1 stjerne
+                </button>
+
+            </div>
+
+
+            <div
+                class="parent-actions"
+                style="margin-top:10px"
+            >
+
+                <button
+                    class="danger-btn"
+                    onclick="adjustStars(-5)"
+                >
+                    − 5
+                </button>
+
+                <button onclick="adjustStars(5)">
+                    + 5
+                </button>
+
+            </div>
+
+
+            <button
+                class="secondary-btn"
+                style="margin-top:16px"
+                onclick="closeParent()"
+            >
+                Færdig
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FEJRING -->
+
 <div id="celebration">
+
     <div class="celebration-card">
 
-        <div class="alien" id="alien">👽</div>
+        <div
+            class="alien"
+            id="alien"
+        >
+            👽
+        </div>
 
         <div class="celebration-title">
             DU KLAREDE HELE DAGEN! ⭐
         </div>
 
-        <div class="celebration-message" id="celebrationMessage">
+        <div
+            class="celebration-message"
+            id="celebrationMessage"
+        >
             Hvor er du sej! 💗
         </div>
 
@@ -536,86 +843,230 @@ button {
         </button>
 
     </div>
+
 </div>
+
 
 <script>
 
 const today = new Date();
-const tasks = document.querySelectorAll(".task");
+
+const tasks =
+    document.querySelectorAll(".task");
 
 
 // ----------------------
 // DATO
 // ----------------------
 
-const dateText = today.toLocaleDateString("da-DK", {
-    weekday: "long",
-    day: "numeric",
-    month: "long"
-});
+const dateText =
+    today.toLocaleDateString(
+        "da-DK",
+        {
+            weekday: "long",
+            day: "numeric",
+            month: "long"
+        }
+    );
 
-document.getElementById("date").textContent = dateText;
-
-
-// ----------------------
-// MORGENBESKED
-// ----------------------
-
-const messages = [
-    "Vi håber, du får verdens bedste dag i skolen! 💗",
-    "Vi kommer til at savne dig i dag! 🥰",
-    "Vi håber, du kommer til at grine rigtig meget i dag! 😂",
-    "Vi håber, du får hygget og leget med de andre i dag! 🫶",
-    "Vi håber, din dag bliver fyldt med gode oplevelser! 🌈",
-    "Husk, at vi elsker dig helt op til månen og tilbage! 🌙💗",
-    "Vi håber, der sker noget rigtig sjovt i skolen i dag! 🌟",
-    "Vi glæder os allerede til at se dig igen! 🤗",
-    "Vi håber, du får en dag med masser af smil! 🥰",
-    "Vi håber, nogen får dig til at grine i dag! 🌸",
-    "Husk at være lige præcis dig – du er fantastisk! 💗",
-    "Vi håber, du får en rigtig dejlig dag! ☀️",
-    "Må din dag blive fyldt med grin, hygge og gode venner! 🦄",
-    "Vi sender en kæmpe krammer med dig i skole i dag! 💕",
-    "Vi håber, du kommer hjem med noget sjovt at fortælle! 🌟",
-    "Vi håber, du får en rolig og hyggelig dag i dag 💗",
-    "Må der ske mindst én ting i dag, som får dig til at smile stort 😄",
-    "Vi håber, du får en masse gode øjeblikke i dag 🌷",
-    "Husk at have det sjovt og nyde din dag 💕",
-    "Vi håber, du får leget, grinet og hygget dig rigtig meget i dag 🎈",
-    "Vi tænker på dig og håber, du får en fantastisk dag 💗",
-    "Vi håber, skoledagen går hurtigt og bliver rigtig hyggelig ✨",
-    "Vi håber, du får et kæmpe smil på læben i dag 😁",
-    "Vi håber, du får en dag fyldt med søde mennesker og gode grin 🥰",
-    "Vi glæder os til at høre om din dag, når du kommer hjem 💕",
-    "Vi håber, du får lavet noget sjovt sammen med de andre i dag 🌈",
-    "Du fortjener en virkelig dejlig dag i dag 💗",
-    "Vi håber, du får en dag med masser af hygge og grin 🦄",
-    "Vi sender dig et usynligt kæmpekram med i skole 🤗",
-    "Vi håber, du får en dag, du bliver glad af at tænke tilbage på 🌸"
-];
-
-const dayNumber = Math.floor(today.getTime() / 86400000);
-
-const todaysMessage =
-    messages[dayNumber % messages.length];
-
-document.getElementById("dailyMessage").textContent =
-    todaysMessage;
+document.getElementById("date").textContent =
+    dateText;
 
 
 // ----------------------
-// TIRSDAG
+// DAG
 // ----------------------
 
 const weekday = today.getDay();
 
-document.querySelectorAll(".tuesday").forEach(task => {
+/*
 
-    if (weekday !== 2) {
-        task.style.display = "none";
-    }
+0 = søndag
+1 = mandag
+2 = tirsdag
+3 = onsdag
+4 = torsdag
+5 = fredag
+6 = lørdag
 
-});
+*/
+
+const isWeekend =
+    weekday === 0 ||
+    weekday === 6;
+
+
+// ----------------------
+// WEEKEND OVERSKRIFT
+// ----------------------
+
+if (isWeekend) {
+
+    document.getElementById(
+        "morningTitle"
+    ).textContent =
+        "☀️ Når du står op";
+
+}
+
+
+// ----------------------
+// VIS / SKJUL OPGAVER
+// ----------------------
+
+function hide(selector, condition) {
+
+    document
+        .querySelectorAll(selector)
+        .forEach(element => {
+
+            if (condition) {
+                element.style.display =
+                    "none";
+            }
+
+        });
+
+}
+
+
+// Tirsdag
+
+hide(
+    ".tuesday",
+    weekday !== 2
+);
+
+
+// Mandag
+
+hide(
+    ".monday",
+    weekday !== 1
+);
+
+
+// Onsdag
+
+hide(
+    ".wednesday",
+    weekday !== 3
+);
+
+
+// Tirsdag + onsdag
+
+hide(
+    ".tue-wed",
+    weekday !== 2 &&
+    weekday !== 3
+);
+
+
+// Søndag til torsdag
+
+hide(
+    ".sun-thu",
+    ![0,1,2,3,4].includes(weekday)
+);
+
+
+// Kun skoledage
+
+hide(
+    ".weekday-only",
+    isWeekend
+);
+
+
+// Efter skole skjules weekend
+
+hide(
+    ".weekday-section",
+    isWeekend
+);
+
+
+// Weekenddelen skjules hverdage
+
+hide(
+    ".weekend-section",
+    !isWeekend
+);
+
+
+// ----------------------
+// DAGENS BESKED
+// ----------------------
+
+const messages = [
+
+    "Vi håber, du får verdens bedste dag! 💗",
+
+    "Vi kommer til at savne dig i dag! 🥰",
+
+    "Vi håber, du kommer til at grine rigtig meget i dag! 😂",
+
+    "Vi håber, du får hygget dig rigtig meget i dag! 🫶",
+
+    "Vi håber, din dag bliver fyldt med gode oplevelser! 🌈",
+
+    "Husk, at vi elsker dig helt op til månen og tilbage! 🌙💗",
+
+    "Vi håber, du får en dag med masser af smil! 🥰",
+
+    "Vi håber, nogen får dig til at grine i dag! 🌸",
+
+    "Husk at være lige præcis dig – du er fantastisk! 💗",
+
+    "Vi håber, du får en rigtig dejlig dag! ☀️",
+
+    "Må din dag blive fyldt med grin og hygge! 🦄",
+
+    "Vi glæder os allerede til at se dig igen! 🤗",
+
+    "Vi håber, du kommer hjem med noget sjovt at fortælle! 🌟",
+
+    "Vi håber, du får en rolig og hyggelig dag 💗",
+
+    "Må der ske mindst én ting i dag, som får dig til at smile stort 😄",
+
+    "Vi håber, du får en masse gode øjeblikke i dag 🌷",
+
+    "Husk at have det sjovt og nyde din dag 💕",
+
+    "Vi tænker på dig og håber, du får en fantastisk dag 💗",
+
+    "Vi håber, du får et kæmpe smil på læben i dag 😁",
+
+    "Vi glæder os til at høre om din dag 💕",
+
+    "Du fortjener en virkelig dejlig dag i dag 💗",
+
+    "Vi sender dig et usynligt kæmpekram 🤗",
+
+    "Vi håber, du får en dag, du bliver glad af at tænke tilbage på 🌸"
+
+];
+
+
+const dayNumber =
+    Math.floor(
+        today.getTime() / 86400000
+    );
+
+
+const todaysMessage =
+    messages[
+        dayNumber %
+        messages.length
+    ];
+
+
+document.getElementById(
+    "dailyMessage"
+).textContent =
+    todaysMessage;
 
 
 // ----------------------
@@ -623,39 +1074,75 @@ document.querySelectorAll(".tuesday").forEach(task => {
 // ----------------------
 
 const dateKey =
-    today.getFullYear() + "-" +
-    String(today.getMonth() + 1).padStart(2, "0") + "-" +
-    String(today.getDate()).padStart(2, "0");
+
+    today.getFullYear() +
+    "-" +
+
+    String(
+        today.getMonth() + 1
+    ).padStart(2, "0") +
+    "-" +
+
+    String(
+        today.getDate()
+    ).padStart(2, "0");
+
 
 const storageKey =
-    "routine-tasks-" + dateKey;
+    "routine-tasks-" +
+    dateKey;
 
 
 // ----------------------
-// HENT GEMTE FLUEBEN
+// HENT DAGENS FLUEBEN
 // ----------------------
 
 let savedTasks =
+
     JSON.parse(
-        localStorage.getItem(storageKey) || "[]"
+
+        localStorage.getItem(
+            storageKey
+        ) || "[]"
+
     );
 
-tasks.forEach((task, index) => {
 
-    if (savedTasks.includes(index)) {
-        task.classList.add("done");
+// ----------------------
+// OPGAVER
+// ----------------------
+
+tasks.forEach(
+    (task, index) => {
+
+        if (
+            savedTasks.includes(index)
+        ) {
+
+            task.classList.add(
+                "done"
+            );
+
+        }
+
+
+        task.addEventListener(
+            "click",
+            () => {
+
+                task.classList.toggle(
+                    "done"
+                );
+
+                saveTasks();
+
+                updateProgress();
+
+            }
+        );
+
     }
-
-    task.addEventListener("click", () => {
-
-        task.classList.toggle("done");
-
-        saveTasks();
-        updateProgress();
-
-    });
-
-});
+);
 
 
 // ----------------------
@@ -666,17 +1153,32 @@ function saveTasks() {
 
     const completed = [];
 
-    tasks.forEach((task, index) => {
 
-        if (task.classList.contains("done")) {
-            completed.push(index);
+    tasks.forEach(
+        (task, index) => {
+
+            if (
+                task.classList.contains(
+                    "done"
+                )
+            ) {
+
+                completed.push(index);
+
+            }
+
         }
+    );
 
-    });
 
     localStorage.setItem(
+
         storageKey,
-        JSON.stringify(completed)
+
+        JSON.stringify(
+            completed
+        )
+
     );
 
 }
@@ -689,45 +1191,84 @@ function saveTasks() {
 function updateProgress() {
 
     const visibleTasks =
-        [...tasks].filter(task =>
-            task.style.display !== "none"
+
+        [...tasks].filter(
+            task =>
+
+                task.style.display
+                !== "none"
         );
 
+
     const completedTasks =
-        visibleTasks.filter(task =>
-            task.classList.contains("done")
+
+        visibleTasks.filter(
+            task =>
+
+                task.classList.contains(
+                    "done"
+                )
         );
+
 
     const total =
         visibleTasks.length;
 
+
     const done =
         completedTasks.length;
 
-    document.getElementById("progressText").textContent =
-        done + " / " + total + " klaret";
+
+    document.getElementById(
+        "progressText"
+    ).textContent =
+
+        done +
+        " / " +
+        total +
+        " klaret";
+
 
     const percentage =
+
         total === 0
+
         ? 0
+
         : (done / total) * 100;
 
-    document.getElementById("progress").style.width =
+
+    document.getElementById(
+        "progress"
+    ).style.width =
+
         percentage + "%";
 
-    if (total > 0 && done === total) {
+
+    if (
+        total > 0 &&
+        done === total
+    ) {
 
         const celebrationKey =
-            "celebrated-" + dateKey;
+            "celebrated-" +
+            dateKey;
 
-        if (!localStorage.getItem(celebrationKey)) {
+
+        if (
+            !localStorage.getItem(
+                celebrationKey
+            )
+        ) {
 
             localStorage.setItem(
                 celebrationKey,
                 "yes"
             );
 
+
             registerGoodDay();
+
 
             setTimeout(
                 showCelebration,
@@ -742,28 +1283,89 @@ function updateProgress() {
 
 
 // ----------------------
-// REGISTRER GOD DAG
+// GIV DAGENS STJERNE
 // ----------------------
 
 function registerGoodDay() {
 
     let goodDays =
+
         JSON.parse(
-            localStorage.getItem("good-days") || "[]"
+
+            localStorage.getItem(
+                "good-days"
+            ) || "[]"
+
         );
 
-    if (!goodDays.includes(dateKey)) {
 
-        goodDays.push(dateKey);
+    if (
+        !goodDays.includes(
+            dateKey
+        )
+    ) {
+
+        goodDays.push(
+            dateKey
+        );
+
 
         localStorage.setItem(
+
             "good-days",
-            JSON.stringify(goodDays)
+
+            JSON.stringify(
+                goodDays
+            )
+
         );
 
     }
 
+
     updateRewards();
+
+}
+
+
+// ----------------------
+// STJERNER
+// ----------------------
+
+function currentStarCount() {
+
+    const goodDays =
+
+        JSON.parse(
+
+            localStorage.getItem(
+                "good-days"
+            ) || "[]"
+
+        );
+
+
+    const manualAdjustment =
+
+        parseInt(
+
+            localStorage.getItem(
+                "star-adjustment"
+            ) || "0",
+
+            10
+
+        );
+
+
+    return Math.max(
+
+        0,
+
+        goodDays.length +
+        manualAdjustment
+
+    );
 
 }
 
@@ -774,72 +1376,409 @@ function registerGoodDay() {
 
 function updateRewards() {
 
-    const goodDays =
-        JSON.parse(
-            localStorage.getItem("good-days") || "[]"
-        );
+    const count =
+        currentStarCount();
 
-    const count = goodDays.length;
 
-    document.getElementById("goodDaysCount").textContent =
+    document.getElementById(
+        "goodDaysCount"
+    ).textContent =
         count;
 
-    const left5 = Math.max(5 - count, 0);
-    const left10 = Math.max(10 - count, 0);
-    const left20 = Math.max(20 - count, 0);
 
-    document.getElementById("daysTo5").textContent =
+    const left5 =
+        Math.max(
+            5 - count,
+            0
+        );
+
+
+    const left10 =
+        Math.max(
+            10 - count,
+            0
+        );
+
+
+    const left20 =
+        Math.max(
+            20 - count,
+            0
+        );
+
+
+    document.getElementById(
+        "daysTo5"
+    ).textContent =
+
         left5 === 0
-        ? "🎉 Belønningen er nået!"
-        : "Mangler " + left5 + " gode dage";
 
-    document.getElementById("daysTo10").textContent =
+        ? "🎉 Belønningen er nået!"
+
+        : "Mangler " +
+          left5 +
+          " stjerner";
+
+
+    document.getElementById(
+        "daysTo10"
+    ).textContent =
+
         left10 === 0
-        ? "🎉 Belønningen er nået!"
-        : "Mangler " + left10 + " gode dage";
 
-    document.getElementById("daysTo20").textContent =
-        left20 === 0
         ? "🎉 Belønningen er nået!"
-        : "Mangler " + left20 + " gode dage";
+
+        : "Mangler " +
+          left10 +
+          " stjerner";
+
+
+    document.getElementById(
+        "daysTo20"
+    ).textContent =
+
+        left20 === 0
+
+        ? "🎉 Belønningen er nået!"
+
+        : "Mangler " +
+          left20 +
+          " stjerner";
+
+
+    const parentCount =
+        document.getElementById(
+            "parentStarCount"
+        );
+
+
+    if (parentCount) {
+
+        parentCount.textContent =
+            count;
+
+    }
 
 }
 
 
 // ----------------------
-// BESKED NÅR HELE DAGEN ER KLARET
+// ÅBN FORÆLDRE
+// ----------------------
+
+function openParent() {
+
+    document.getElementById(
+        "parentOverlay"
+    ).style.display =
+        "flex";
+
+
+    document.getElementById(
+        "parentLogin"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "parentControls"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "parentPin"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "pinMessage"
+    ).textContent =
+        "";
+
+
+    setTimeout(
+        () => {
+
+            document.getElementById(
+                "parentPin"
+            ).focus();
+
+        },
+
+        100
+    );
+
+}
+
+
+// ----------------------
+// FORÆLDREKODE
+// ----------------------
+
+function unlockParent() {
+
+    const pin =
+
+        document.getElementById(
+            "parentPin"
+        ).value;
+
+
+    if (
+        pin === "1722"
+    ) {
+
+        document.getElementById(
+            "parentLogin"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "parentControls"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "parentStarCount"
+        ).textContent =
+
+            currentStarCount();
+
+    }
+
+    else {
+
+        document.getElementById(
+            "pinMessage"
+        ).textContent =
+
+            "Forkert kode";
+
+    }
+
+}
+
+
+// ----------------------
+// TILFØJ / FJERN STJERNER
+// ----------------------
+
+function adjustStars(amount) {
+
+    const before =
+        currentStarCount();
+
+
+    if (
+        amount < 0 &&
+        before === 0
+    ) {
+
+        return;
+
+    }
+
+
+    const goodDays =
+
+        JSON.parse(
+
+            localStorage.getItem(
+                "good-days"
+            ) || "[]"
+
+        );
+
+
+    const target =
+
+        Math.max(
+
+            0,
+
+            before + amount
+
+        );
+
+
+    const adjustment =
+
+        target -
+        goodDays.length;
+
+
+    localStorage.setItem(
+
+        "star-adjustment",
+
+        String(
+            adjustment
+        )
+
+    );
+
+
+    // Gem lille historik
+
+    const history =
+
+        JSON.parse(
+
+            localStorage.getItem(
+                "star-history"
+            ) || "[]"
+
+        );
+
+
+    history.push({
+
+        date:
+            new Date()
+            .toISOString(),
+
+        change:
+            target - before,
+
+        total:
+            target
+
+    });
+
+
+    localStorage.setItem(
+
+        "star-history",
+
+        JSON.stringify(
+            history
+        )
+
+    );
+
+
+    updateRewards();
+
+}
+
+
+// ----------------------
+// LUK FORÆLDRE
+// ----------------------
+
+function closeParent() {
+
+    document.getElementById(
+        "parentOverlay"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "parentPin"
+    ).value =
+        "";
+
+}
+
+
+// Tryk på stjernerne
+
+document.getElementById(
+    "starCounter"
+).addEventListener(
+    "click",
+    openParent
+);
+
+
+// Enter efter kode
+
+document.getElementById(
+    "parentPin"
+).addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            unlockParent();
+
+        }
+
+    }
+);
+
+
+// ----------------------
+// FEJRINGSBESKEDER
 // ----------------------
 
 const celebrationMessages = [
+
     "Vi elsker dig! 💗",
+
     "Hvor er du sej! 🌟",
+
     "Godt gået, du gjorde det! 🎉",
-    "En dag tættere på en belønning! ⭐",
+
+    "En stjerne tættere på en belønning! ⭐",
+
     "Du klarede hele dagen! Mega flot! 💗",
+
     "Vi er stolte af dig! 💕",
+
     "Du gjorde det hele! 🌈",
+
     "Se lige dig! Du har klaret alle dagens ting! 🥰",
+
     "Mega godt gået! Du kan være stolt af dig selv! ⭐",
-    "Endnu en god dag er gennemført! 💗",
+
+    "Du har tjent en stjerne i dag! 💗",
+
     "Du er for sej! Hele dagen er klaret! 🚀",
+
     "Du gjorde det! Endnu en dag i mål! 🌟",
+
     "Fantastisk arbejde i dag! 💕",
+
     "Du klarede alle dine opgaver! Hvor er det flot! 🦄",
+
     "En hel dag klaret - kæmpe high five! ✋💗",
+
     "Du er kommet endnu et skridt tættere på din næste belønning! 🎁",
+
     "Du har virkelig gjort det godt i dag! 🌸",
+
     "Mission gennemført! ⭐",
+
     "Sikke en flot indsats i dag! 💗",
+
     "Alle flueben er på plads! Du gjorde det! 🎉"
+
 ];
 
+
 const celebrationAliens = [
+
     "👽💙",
+
     "👾💙",
+
     "🛸✨",
+
     "👽🌟",
+
     "👾🪐",
+
     "🚀💙"
+
 ];
 
 
@@ -850,22 +1789,46 @@ const celebrationAliens = [
 function showCelebration() {
 
     const messageIndex =
+
         Math.floor(
-            Math.random() * celebrationMessages.length
+
+            Math.random() *
+            celebrationMessages.length
+
         );
+
 
     const alienIndex =
+
         Math.floor(
-            Math.random() * celebrationAliens.length
+
+            Math.random() *
+            celebrationAliens.length
+
         );
 
-    document.getElementById("celebrationMessage").textContent =
-        celebrationMessages[messageIndex];
 
-    document.getElementById("alien").textContent =
-        celebrationAliens[alienIndex];
+    document.getElementById(
+        "celebrationMessage"
+    ).textContent =
 
-    document.getElementById("celebration").style.display =
+        celebrationMessages[
+            messageIndex
+        ];
+
+
+    document.getElementById(
+        "alien"
+    ).textContent =
+
+        celebrationAliens[
+            alienIndex
+        ];
+
+
+    document.getElementById(
+        "celebration"
+    ).style.display =
         "flex";
 
 }
@@ -877,7 +1840,9 @@ function showCelebration() {
 
 function closeCelebration() {
 
-    document.getElementById("celebration").style.display =
+    document.getElementById(
+        "celebration"
+    ).style.display =
         "none";
 
 }
@@ -888,6 +1853,7 @@ function closeCelebration() {
 // ----------------------
 
 updateProgress();
+
 updateRewards();
 
 </script>
