@@ -43,17 +43,76 @@ h1 {
     color: #a6498d;
 }
 
-.date {
-    font-size: 18px;
-    font-weight: bold;
-    color: #6f568c;
-}
-
 .subtitle {
     margin-top: 8px;
     font-size: 16px;
     color: #8a739d;
 }
+
+/* DAGSVÆLGER */
+
+.day-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: white;
+    border-radius: 22px;
+    padding: 12px;
+    margin: 16px 0;
+    box-shadow: 0 5px 18px #7b5c8d1c;
+}
+
+.day-button {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.day-info {
+    flex: 1;
+    text-align: center;
+}
+
+.day-name {
+    font-size: 21px;
+    font-weight: bold;
+    color: #a6498d;
+    text-transform: capitalize;
+}
+
+.day-date {
+    font-size: 15px;
+    color: #756589;
+    margin-top: 3px;
+}
+
+.today-label {
+    display: inline-block;
+    background: #f4d8ff;
+    color: #844b99;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 6px;
+}
+
+.today-button {
+    display: none;
+    margin: 8px auto 0;
+    padding: 7px 14px;
+    font-size: 13px;
+    border-radius: 20px;
+}
+
+/* BESKED */
 
 .message-card {
     background: linear-gradient(135deg, #fff5c9, #ffeef8);
@@ -76,6 +135,8 @@ h1 {
     color: #5f4b7d;
     line-height: 1.45;
 }
+
+/* FREMSKRIDT */
 
 .progress-box {
     background: white;
@@ -106,6 +167,8 @@ h1 {
     background: linear-gradient(90deg, #ff9ed4, #bf8cff, #90b8ff);
     transition: width 0.4s ease;
 }
+
+/* OPGAVER */
 
 .section {
     border-radius: 24px;
@@ -195,6 +258,8 @@ h1 {
     font-size: 20px;
     font-weight: bold;
 }
+
+/* BELØNNINGER */
 
 .reward-card {
     background: linear-gradient(135deg, #fff7dc, #fff1fd);
@@ -334,8 +399,7 @@ button {
     display: none;
     position: fixed;
     inset: 0;
-    background:
-        radial-gradient(circle at center, #7856a9, #261c45 72%);
+    background: radial-gradient(circle at center, #7856a9, #261c45 72%);
     z-index: 999;
     align-items: center;
     justify-content: center;
@@ -361,7 +425,6 @@ button {
     from {
         transform: translateY(0) rotate(-6deg);
     }
-
     to {
         transform: translateY(-15px) rotate(6deg);
     }
@@ -380,7 +443,6 @@ button {
     margin-bottom: 18px;
     line-height: 1.45;
 }
-
 </style>
 </head>
 
@@ -392,25 +454,70 @@ button {
         <div class="header-emoji">🦄💗</div>
         <h1>Min dag</h1>
 
-        <div class="date" id="date"></div>
-
         <div class="subtitle">
             Små skridt hver dag gør en stor forskel ✨
         </div>
     </div>
 
 
-    <div class="message-card">
-        <h3>💌 En besked til dig</h3>
-        <div id="dailyMessage"></div>
+    <!-- DAGSVÆLGER -->
+
+    <div class="day-navigation">
+
+        <button class="day-button" onclick="changeDay(-1)">
+            ‹
+        </button>
+
+        <div class="day-info">
+
+            <div class="day-name" id="dayName"></div>
+
+            <div class="day-date" id="dayDate"></div>
+
+            <div class="today-label" id="todayLabel">
+                ⭐ I DAG
+            </div>
+
+            <button
+                class="today-button"
+                id="todayButton"
+                onclick="goToToday()"
+            >
+                Tilbage til i dag
+            </button>
+
+        </div>
+
+        <button class="day-button" onclick="changeDay(1)">
+            ›
+        </button>
+
     </div>
 
+
+    <!-- BESKED -->
+
+    <div class="message-card">
+
+        <h3>💌 En besked til dig</h3>
+
+        <div id="dailyMessage"></div>
+
+    </div>
+
+
+    <!-- FREMSKRIDT -->
 
     <div class="progress-box">
 
         <div class="progress-row">
+
             <span>⭐ Dagens fremskridt</span>
-            <span id="progressText">0 / 0 klaret</span>
+
+            <span id="progressText">
+                0 / 0 klaret
+            </span>
+
         </div>
 
         <div class="progress-bar">
@@ -420,226 +527,9 @@ button {
     </div>
 
 
-    <!-- MORGEN -->
+    <!-- OPGAVER BLIVER SAT IND HER -->
 
-    <div class="section morning">
-
-        <h2 id="morningTitle">☀️ Morgen</h2>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">👁️</div>
-            <div>Fjern søvn fra øjnene</div>
-        </div>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">🪮</div>
-            <div>Red håret</div>
-        </div>
-
-        <div class="task tue-wed">
-            <div class="check"></div>
-            <div class="task-icon">🎀</div>
-            <div>Sæt håret op til skole</div>
-        </div>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">🪥</div>
-            <div>Børst tænder</div>
-        </div>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">👕</div>
-            <div>Tag tøj på</div>
-        </div>
-
-        <div class="task wednesday">
-            <div class="check"></div>
-            <div class="task-icon">🎨</div>
-            <div>Tag tøj på, som må blive beskidt</div>
-        </div>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">🥣</div>
-            <div>Spis morgenmad</div>
-        </div>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">🚽</div>
-            <div>Gå på toilettet</div>
-        </div>
-
-        <div class="task weekday-only">
-            <div class="check"></div>
-            <div class="task-icon">🍱</div>
-            <div>Put madpakken i tasken</div>
-        </div>
-
-        <div class="task weekday-only">
-            <div class="check"></div>
-            <div class="task-icon">🎒</div>
-            <div>Tjek at skoletasken er klar</div>
-        </div>
-
-    </div>
-
-
-    <!-- EFTER SKOLE -->
-
-    <div class="section afterschool weekday-section">
-
-        <h2>🎒 Efter skole</h2>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">🍱</div>
-            <div>Tag madpakken op af tasken</div>
-        </div>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">🚽</div>
-            <div>Gå på toilettet</div>
-        </div>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">📚</div>
-            <div>Lav lektier</div>
-        </div>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">🧺</div>
-            <div>Ryd op efter dig på værelset</div>
-        </div>
-
-        <div class="task tuesday">
-            <div class="check"></div>
-            <div class="task-icon">👚</div>
-            <div>Gymnastiktøj til vask</div>
-        </div>
-
-    </div>
-
-
-    <!-- WEEKEND -->
-
-    <div class="section afterschool weekend-section">
-
-        <h2>🌈 I løbet af dagen</h2>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">🚽</div>
-            <div>Gå på toilettet</div>
-        </div>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">🧺</div>
-            <div>Ryd op efter dig på værelset</div>
-        </div>
-
-    </div>
-
-
-    <!-- EFTER AFTENSMAD -->
-
-    <div class="section dinner">
-
-        <h2>🍽️ Efter aftensmad</h2>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">🚽</div>
-            <div>Gå på toilettet</div>
-        </div>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">🧼</div>
-            <div>Vask hænder</div>
-        </div>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">💦</div>
-            <div>Vask mund</div>
-        </div>
-
-    </div>
-
-
-    <!-- SENGETID -->
-
-    <div class="section bedtime">
-
-        <h2>🌙 Sengetid</h2>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">🚽</div>
-            <div>Gå på toilettet</div>
-        </div>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">🪥</div>
-            <div>Børst tænder</div>
-        </div>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">🌙</div>
-            <div>Tag nattøj på</div>
-        </div>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">🪮</div>
-            <div>Red håret</div>
-        </div>
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">💧</div>
-            <div>Tag vand med ind</div>
-        </div>
-
-
-        <!-- SØNDAG - TORSDAG -->
-
-        <div class="task sun-thu">
-            <div class="check"></div>
-            <div class="task-icon">🍱</div>
-            <div>Lav madpakke til i morgen</div>
-        </div>
-
-
-        <!-- MANDAG -->
-
-        <div class="task monday">
-            <div class="check"></div>
-            <div class="task-icon">🤸</div>
-            <div>Pak gymnastiktøj, så det er klar til tirsdag</div>
-        </div>
-
-
-        <!-- HVER AFTEN -->
-
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-icon">📱</div>
-            <div>Læg mobilen til opladning</div>
-        </div>
-
-    </div>
+    <div id="taskContainer"></div>
 
 
     <!-- BELØNNINGER -->
@@ -649,8 +539,10 @@ button {
         <h2>🏆 Mine belønninger ✨</h2>
 
         <div class="reward-total" id="starCounter">
+
             ⭐ Stjerner i alt:
-            <span id="goodDaysCount">0</span>
+            <span id="starCount">0</span>
+
         </div>
 
 
@@ -664,7 +556,10 @@ button {
 
             En snack 🍿<br>
 
-            <span class="days-left" id="daysTo5"></span>
+            <span
+                class="days-left"
+                id="starsTo5"
+            ></span>
 
         </div>
 
@@ -679,7 +574,10 @@ button {
 
             En snack og en film 🎬<br>
 
-            <span class="days-left" id="daysTo10"></span>
+            <span
+                class="days-left"
+                id="starsTo10"
+            ></span>
 
         </div>
 
@@ -694,7 +592,10 @@ button {
 
             Overraskelse 🎁<br>
 
-            <span class="days-left" id="daysTo20"></span>
+            <span
+                class="days-left"
+                id="starsTo20"
+            ></span>
 
         </div>
 
@@ -710,15 +611,21 @@ button {
 
 <!-- FORÆLDRE -->
 
-<div class="parent-overlay" id="parentOverlay">
+<div
+    class="parent-overlay"
+    id="parentOverlay"
+>
 
     <div class="parent-card">
+
 
         <div id="parentLogin">
 
             <h2>🔒 Forældre</h2>
 
-            <p>Indtast forældrekoden</p>
+            <p>
+                Indtast forældrekoden
+            </p>
 
             <input
                 id="parentPin"
@@ -763,7 +670,6 @@ button {
                 <b id="parentStarCount">0</b>
             </p>
 
-
             <div class="parent-actions">
 
                 <button
@@ -778,7 +684,6 @@ button {
                 </button>
 
             </div>
-
 
             <div
                 class="parent-actions"
@@ -797,7 +702,6 @@ button {
                 </button>
 
             </div>
-
 
             <button
                 class="secondary-btn"
@@ -849,155 +753,21 @@ button {
 
 <script>
 
-const today = new Date();
+/* ============================
+   DATOER
+============================ */
 
-const tasks =
-    document.querySelectorAll(".task");
+const realToday = new Date();
 
+realToday.setHours(0,0,0,0);
 
-// ----------------------
-// DATO
-// ----------------------
-
-const dateText =
-    today.toLocaleDateString(
-        "da-DK",
-        {
-            weekday: "long",
-            day: "numeric",
-            month: "long"
-        }
-    );
-
-document.getElementById("date").textContent =
-    dateText;
+let selectedDate =
+    new Date(realToday);
 
 
-// ----------------------
-// DAG
-// ----------------------
-
-const weekday = today.getDay();
-
-/*
-
-0 = søndag
-1 = mandag
-2 = tirsdag
-3 = onsdag
-4 = torsdag
-5 = fredag
-6 = lørdag
-
-*/
-
-const isWeekend =
-    weekday === 0 ||
-    weekday === 6;
-
-
-// ----------------------
-// WEEKEND OVERSKRIFT
-// ----------------------
-
-if (isWeekend) {
-
-    document.getElementById(
-        "morningTitle"
-    ).textContent =
-        "☀️ Når du står op";
-
-}
-
-
-// ----------------------
-// VIS / SKJUL OPGAVER
-// ----------------------
-
-function hide(selector, condition) {
-
-    document
-        .querySelectorAll(selector)
-        .forEach(element => {
-
-            if (condition) {
-                element.style.display =
-                    "none";
-            }
-
-        });
-
-}
-
-
-// Tirsdag
-
-hide(
-    ".tuesday",
-    weekday !== 2
-);
-
-
-// Mandag
-
-hide(
-    ".monday",
-    weekday !== 1
-);
-
-
-// Onsdag
-
-hide(
-    ".wednesday",
-    weekday !== 3
-);
-
-
-// Tirsdag + onsdag
-
-hide(
-    ".tue-wed",
-    weekday !== 2 &&
-    weekday !== 3
-);
-
-
-// Søndag til torsdag
-
-hide(
-    ".sun-thu",
-    ![0,1,2,3,4].includes(weekday)
-);
-
-
-// Kun skoledage
-
-hide(
-    ".weekday-only",
-    isWeekend
-);
-
-
-// Efter skole skjules weekend
-
-hide(
-    ".weekday-section",
-    isWeekend
-);
-
-
-// Weekenddelen skjules hverdage
-
-hide(
-    ".weekend-section",
-    !isWeekend
-);
-
-
-// ----------------------
-// DAGENS BESKED
-// ----------------------
+/* ============================
+   BESKEDER
+============================ */
 
 const messages = [
 
@@ -1050,112 +820,555 @@ const messages = [
 ];
 
 
-const dayNumber =
-    Math.floor(
-        today.getTime() / 86400000
+/* ============================
+   OPGAVER
+============================ */
+
+const morningNormal = [
+
+    ["👁️", "Fjern søvn fra øjnene"],
+
+    ["🪮", "Red håret"],
+
+    ["🪥", "Børst tænder"],
+
+    ["👕", "Tag tøj på"],
+
+    ["🥣", "Spis morgenmad"],
+
+    ["🚽", "Gå på toilettet"]
+
+];
+
+
+const afterSchoolNormal = [
+
+    ["🍱", "Tøm madpakke"],
+
+    ["🚽", "Gå på toilettet"],
+
+    ["📚", "Lav lektier"],
+
+    ["🧺", "Ryd op efter dig på værelset"]
+
+];
+
+
+const weekendDay = [
+
+    ["🚽", "Gå på toilettet"],
+
+    ["🧺", "Ryd op efter dig på værelset"]
+
+];
+
+
+const afterDinner = [
+
+    ["🚽", "Gå på toilettet"],
+
+    ["🧼", "Vask hænder"],
+
+    ["💦", "Vask mund"]
+
+];
+
+
+const bedtime = [
+
+    ["🚽", "Gå på toilettet"],
+
+    ["🪥", "Børst tænder"],
+
+    ["🌙", "Tag nattøj på"],
+
+    ["🪮", "Red håret"],
+
+    ["💧", "Tag vand med ind"],
+
+    ["📱", "Læg mobilen til opladning"]
+
+];
+
+
+/* ============================
+   DATO-NØGLE
+============================ */
+
+function getDateKey(date) {
+
+    return (
+
+        date.getFullYear() +
+        "-" +
+
+        String(
+            date.getMonth() + 1
+        ).padStart(2, "0") +
+        "-" +
+
+        String(
+            date.getDate()
+        ).padStart(2, "0")
+
+    );
+
+}
+
+
+/* ============================
+   SKIFT DAG
+============================ */
+
+function changeDay(amount) {
+
+    selectedDate.setDate(
+        selectedDate.getDate() + amount
+    );
+
+    renderDay();
+
+}
+
+
+function goToToday() {
+
+    selectedDate =
+        new Date(realToday);
+
+    renderDay();
+
+}
+
+
+/* ============================
+   ER DET I DAG?
+============================ */
+
+function isToday(date) {
+
+    return (
+        getDateKey(date) ===
+        getDateKey(realToday)
+    );
+
+}
+
+
+/* ============================
+   LAV OPGAVE
+============================ */
+
+function createTask(icon, text, id) {
+
+    return `
+        <div
+            class="task"
+            data-task="${id}"
+            onclick="toggleTask(this)"
+        >
+
+            <div class="check"></div>
+
+            <div class="task-icon">
+                ${icon}
+            </div>
+
+            <div>
+                ${text}
+            </div>
+
+        </div>
+    `;
+
+}
+
+
+/* ============================
+   LAV SEKTION
+============================ */
+
+function createSection(
+    cssClass,
+    title,
+    tasks
+) {
+
+    let html = `
+        <div class="section ${cssClass}">
+            <h2>${title}</h2>
+    `;
+
+
+    tasks.forEach(
+        (task, index) => {
+
+            html += createTask(
+                task[0],
+                task[1],
+                cssClass +
+                "-" +
+                index +
+                "-" +
+                task[1]
+            );
+
+        }
     );
 
 
-const todaysMessage =
-    messages[
-        dayNumber %
-        messages.length
-    ];
+    html += `</div>`;
+
+    return html;
+
+}
 
 
-document.getElementById(
-    "dailyMessage"
-).textContent =
-    todaysMessage;
+/* ============================
+   VIS DEN VALGTE DAG
+============================ */
+
+function renderDay() {
+
+    const weekday =
+        selectedDate.getDay();
 
 
-// ----------------------
-// DATO-NØGLE
-// ----------------------
-
-const dateKey =
-
-    today.getFullYear() +
-    "-" +
-
-    String(
-        today.getMonth() + 1
-    ).padStart(2, "0") +
-    "-" +
-
-    String(
-        today.getDate()
-    ).padStart(2, "0");
+    const weekend =
+        weekday === 0 ||
+        weekday === 6;
 
 
-const storageKey =
-    "routine-tasks-" +
-    dateKey;
+    /* DAGENS NAVN */
+
+    document.getElementById(
+        "dayName"
+    ).textContent =
+
+        selectedDate.toLocaleDateString(
+            "da-DK",
+            {
+                weekday: "long"
+            }
+        );
 
 
-// ----------------------
-// HENT DAGENS FLUEBEN
-// ----------------------
+    document.getElementById(
+        "dayDate"
+    ).textContent =
 
-let savedTasks =
+        selectedDate.toLocaleDateString(
+            "da-DK",
+            {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            }
+        );
 
-    JSON.parse(
 
-        localStorage.getItem(
-            storageKey
-        ) || "[]"
+    /* I DAG */
+
+    if (isToday(selectedDate)) {
+
+        document.getElementById(
+            "todayLabel"
+        ).style.display =
+            "inline-block";
+
+
+        document.getElementById(
+            "todayButton"
+        ).style.display =
+            "none";
+
+    }
+
+    else {
+
+        document.getElementById(
+            "todayLabel"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "todayButton"
+        ).style.display =
+            "block";
+
+    }
+
+
+    /* BESKED */
+
+    const dayNumber =
+        Math.floor(
+            selectedDate.getTime() /
+            86400000
+        );
+
+
+    document.getElementById(
+        "dailyMessage"
+    ).textContent =
+
+        messages[
+            Math.abs(dayNumber) %
+            messages.length
+        ];
+
+
+    /* MORGEN */
+
+    let morning =
+        morningNormal.map(
+            task => [...task]
+        );
+
+
+    /* TIRSDAG + ONSDAG */
+
+    if (
+        weekday === 2 ||
+        weekday === 3
+    ) {
+
+        morning.splice(
+            2,
+            0,
+            ["🎀", "Sæt håret op til skole"]
+        );
+
+    }
+
+
+    /* ONSDAG */
+
+    if (weekday === 3) {
+
+        morning.push(
+            [
+                "🎨",
+                "Husk tøj på, som må blive beskidt"
+            ]
+        );
+
+    }
+
+
+    /* SKOLEDAGE */
+
+    if (!weekend) {
+
+        morning.push(
+            ["🍱", "Put madpakken i tasken"]
+        );
+
+        morning.push(
+            ["🎒", "Tjek at skoletasken er klar"]
+        );
+
+    }
+
+
+    let html = "";
+
+
+    html += createSection(
+
+        "morning",
+
+        weekend
+            ? "☀️ Når du står op"
+            : "☀️ Morgen",
+
+        morning
 
     );
 
 
-// ----------------------
-// OPGAVER
-// ----------------------
+    /* ======================
+       HVERDAG
+    ====================== */
 
-tasks.forEach(
-    (task, index) => {
+    if (!weekend) {
 
-        if (
-            savedTasks.includes(index)
-        ) {
+        let afternoon =
+            afterSchoolNormal.map(
+                task => [...task]
+            );
 
-            task.classList.add(
-                "done"
+
+        /* MANDAG */
+
+        if (weekday === 1) {
+
+            afternoon.push(
+                [
+                    "🤸",
+                    "Pak gymnastiktøj, så det er klar til tirsdag"
+                ]
             );
 
         }
 
 
-        task.addEventListener(
-            "click",
-            () => {
+        /* TIRSDAG */
 
-                task.classList.toggle(
-                    "done"
-                );
+        if (weekday === 2) {
 
-                saveTasks();
+            afternoon.push(
+                [
+                    "👚",
+                    "Gymnastiktøj til vask"
+                ]
+            );
 
-                updateProgress();
+        }
 
-            }
+
+        /* MANDAG - TORSDAG */
+
+        if (
+            weekday >= 1 &&
+            weekday <= 4
+        ) {
+
+            afternoon.push(
+                [
+                    "🍱",
+                    "Lav madpakke til i morgen"
+                ]
+            );
+
+        }
+
+
+        html += createSection(
+
+            "afterschool",
+
+            "🎒 Efter skole",
+
+            afternoon
+
         );
 
     }
-);
 
 
-// ----------------------
-// GEM FLUEBEN
-// ----------------------
+    /* ======================
+       WEEKEND
+    ====================== */
+
+    else {
+
+        let dayTasks =
+            weekendDay.map(
+                task => [...task]
+            );
+
+
+        /* SØNDAG */
+
+        if (weekday === 0) {
+
+            dayTasks.push(
+                [
+                    "🍱",
+                    "Lav madpakke til i morgen"
+                ]
+            );
+
+        }
+
+
+        html += createSection(
+
+            "afterschool",
+
+            "🌈 I løbet af dagen",
+
+            dayTasks
+
+        );
+
+    }
+
+
+    /* EFTER AFTENSMAD */
+
+    html += createSection(
+
+        "dinner",
+
+        "🍽️ Efter aftensmad",
+
+        afterDinner
+
+    );
+
+
+    /* SENGETID */
+
+    html += createSection(
+
+        "bedtime",
+
+        "🌙 Sengetid",
+
+        bedtime
+
+    );
+
+
+    document.getElementById(
+        "taskContainer"
+    ).innerHTML =
+        html;
+
+
+    loadTasks();
+
+    updateProgress();
+
+}
+
+
+/* ============================
+   FLUEBEN
+============================ */
+
+function toggleTask(task) {
+
+    task.classList.toggle(
+        "done"
+    );
+
+    saveTasks();
+
+    updateProgress();
+
+}
+
+
+/* ============================
+   GEM FLUEBEN FOR DEN DATO
+============================ */
 
 function saveTasks() {
+
+    const dateKey =
+        getDateKey(selectedDate);
+
 
     const completed = [];
 
 
-    tasks.forEach(
-        (task, index) => {
+    document
+        .querySelectorAll(".task")
+        .forEach(task => {
 
             if (
                 task.classList.contains(
@@ -1163,17 +1376,19 @@ function saveTasks() {
                 )
             ) {
 
-                completed.push(index);
+                completed.push(
+                    task.dataset.task
+                );
 
             }
 
-        }
-    );
+        });
 
 
     localStorage.setItem(
 
-        storageKey,
+        "routine-tasks-" +
+        dateKey,
 
         JSON.stringify(
             completed
@@ -1184,27 +1399,66 @@ function saveTasks() {
 }
 
 
-// ----------------------
-// FREMSKRIDT
-// ----------------------
+/* ============================
+   HENT FLUEBEN FOR DEN DATO
+============================ */
 
-function updateProgress() {
+function loadTasks() {
 
-    const visibleTasks =
+    const dateKey =
+        getDateKey(selectedDate);
 
-        [...tasks].filter(
-            task =>
 
-                task.style.display
-                !== "none"
+    const saved =
+
+        JSON.parse(
+
+            localStorage.getItem(
+                "routine-tasks-" +
+                dateKey
+            ) || "[]"
+
         );
 
 
-    const completedTasks =
+    document
+        .querySelectorAll(".task")
+        .forEach(task => {
 
-        visibleTasks.filter(
+            if (
+                saved.includes(
+                    task.dataset.task
+                )
+            ) {
+
+                task.classList.add(
+                    "done"
+                );
+
+            }
+
+        });
+
+}
+
+
+/* ============================
+   FREMSKRIDT
+============================ */
+
+function updateProgress() {
+
+    const tasks =
+        [
+            ...document.querySelectorAll(
+                ".task"
+            )
+        ];
+
+
+    const completed =
+        tasks.filter(
             task =>
-
                 task.classList.contains(
                     "done"
                 )
@@ -1212,11 +1466,11 @@ function updateProgress() {
 
 
     const total =
-        visibleTasks.length;
+        tasks.length;
 
 
     const done =
-        completedTasks.length;
+        completed.length;
 
 
     document.getElementById(
@@ -1250,72 +1504,96 @@ function updateProgress() {
         done === total
     ) {
 
-        const celebrationKey =
-            "celebrated-" +
-            dateKey;
-
-
-        if (
-            !localStorage.getItem(
-                celebrationKey
-            )
-        ) {
-
-            localStorage.setItem(
-                celebrationKey,
-                "yes"
-            );
-
-
-            registerGoodDay();
-
-
-            setTimeout(
-                showCelebration,
-                400
-            );
-
-        }
+        completeDay();
 
     }
 
 }
 
 
-// ----------------------
-// GIV DAGENS STJERNE
-// ----------------------
+/* ============================
+   HELE DAGEN KLARET
+============================ */
 
-function registerGoodDay() {
+function completeDay() {
 
-    let goodDays =
+    const dateKey =
+        getDateKey(selectedDate);
+
+
+    const celebrationKey =
+        "celebrated-" +
+        dateKey;
+
+
+    if (
+        localStorage.getItem(
+            celebrationKey
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        celebrationKey,
+        "yes"
+    );
+
+
+    registerStar(dateKey);
+
+
+    /* VIS KUN FEJRING PÅ I DAG */
+
+    if (isToday(selectedDate)) {
+
+        setTimeout(
+            showCelebration,
+            300
+        );
+
+    }
+
+}
+
+
+/* ============================
+   REGISTRER STJERNE
+============================ */
+
+function registerStar(dateKey) {
+
+    let starDays =
 
         JSON.parse(
 
             localStorage.getItem(
-                "good-days"
+                "star-days"
             ) || "[]"
 
         );
 
 
     if (
-        !goodDays.includes(
+        !starDays.includes(
             dateKey
         )
     ) {
 
-        goodDays.push(
+        starDays.push(
             dateKey
         );
 
 
         localStorage.setItem(
 
-            "good-days",
+            "star-days",
 
             JSON.stringify(
-                goodDays
+                starDays
             )
 
         );
@@ -1328,24 +1606,24 @@ function registerGoodDay() {
 }
 
 
-// ----------------------
-// STJERNER
-// ----------------------
+/* ============================
+   ANTAL STJERNER
+============================ */
 
 function currentStarCount() {
 
-    const goodDays =
+    const starDays =
 
         JSON.parse(
 
             localStorage.getItem(
-                "good-days"
+                "star-days"
             ) || "[]"
 
         );
 
 
-    const manualAdjustment =
+    const adjustment =
 
         parseInt(
 
@@ -1362,17 +1640,17 @@ function currentStarCount() {
 
         0,
 
-        goodDays.length +
-        manualAdjustment
+        starDays.length +
+        adjustment
 
     );
 
 }
 
 
-// ----------------------
-// BELØNNINGER
-// ----------------------
+/* ============================
+   BELØNNINGER
+============================ */
 
 function updateRewards() {
 
@@ -1381,7 +1659,7 @@ function updateRewards() {
 
 
     document.getElementById(
-        "goodDaysCount"
+        "starCount"
     ).textContent =
         count;
 
@@ -1408,7 +1686,7 @@ function updateRewards() {
 
 
     document.getElementById(
-        "daysTo5"
+        "starsTo5"
     ).textContent =
 
         left5 === 0
@@ -1421,7 +1699,7 @@ function updateRewards() {
 
 
     document.getElementById(
-        "daysTo10"
+        "starsTo10"
     ).textContent =
 
         left10 === 0
@@ -1434,7 +1712,7 @@ function updateRewards() {
 
 
     document.getElementById(
-        "daysTo20"
+        "starsTo20"
     ).textContent =
 
         left20 === 0
@@ -1462,9 +1740,9 @@ function updateRewards() {
 }
 
 
-// ----------------------
-// ÅBN FORÆLDRE
-// ----------------------
+/* ============================
+   FORÆLDRE
+============================ */
 
 function openParent() {
 
@@ -1497,25 +1775,12 @@ function openParent() {
     ).textContent =
         "";
 
-
-    setTimeout(
-        () => {
-
-            document.getElementById(
-                "parentPin"
-            ).focus();
-
-        },
-
-        100
-    );
-
 }
 
 
-// ----------------------
-// FORÆLDREKODE
-// ----------------------
+/* ============================
+   FORÆLDREKODE 1722
+============================ */
 
 function unlockParent() {
 
@@ -1526,9 +1791,7 @@ function unlockParent() {
         ).value;
 
 
-    if (
-        pin === "1722"
-    ) {
+    if (pin === "1722") {
 
         document.getElementById(
             "parentLogin"
@@ -1545,7 +1808,6 @@ function unlockParent() {
         document.getElementById(
             "parentStarCount"
         ).textContent =
-
             currentStarCount();
 
     }
@@ -1555,7 +1817,6 @@ function unlockParent() {
         document.getElementById(
             "pinMessage"
         ).textContent =
-
             "Forkert kode";
 
     }
@@ -1563,9 +1824,9 @@ function unlockParent() {
 }
 
 
-// ----------------------
-// TILFØJ / FJERN STJERNER
-// ----------------------
+/* ============================
+   PLUS / MINUS STJERNER
+============================ */
 
 function adjustStars(amount) {
 
@@ -1573,22 +1834,12 @@ function adjustStars(amount) {
         currentStarCount();
 
 
-    if (
-        amount < 0 &&
-        before === 0
-    ) {
-
-        return;
-
-    }
-
-
-    const goodDays =
+    const starDays =
 
         JSON.parse(
 
             localStorage.getItem(
-                "good-days"
+                "star-days"
             ) || "[]"
 
         );
@@ -1597,32 +1848,27 @@ function adjustStars(amount) {
     const target =
 
         Math.max(
-
             0,
-
             before + amount
-
         );
 
 
     const adjustment =
 
         target -
-        goodDays.length;
+        starDays.length;
 
 
     localStorage.setItem(
 
         "star-adjustment",
 
-        String(
-            adjustment
-        )
+        String(adjustment)
 
     );
 
 
-    // Gem lille historik
+    /* HISTORIK */
 
     const history =
 
@@ -1638,8 +1884,7 @@ function adjustStars(amount) {
     history.push({
 
         date:
-            new Date()
-            .toISOString(),
+            new Date().toISOString(),
 
         change:
             target - before,
@@ -1666,9 +1911,9 @@ function adjustStars(amount) {
 }
 
 
-// ----------------------
-// LUK FORÆLDRE
-// ----------------------
+/* ============================
+   LUK FORÆLDRE
+============================ */
 
 function closeParent() {
 
@@ -1677,16 +1922,10 @@ function closeParent() {
     ).style.display =
         "none";
 
-
-    document.getElementById(
-        "parentPin"
-    ).value =
-        "";
-
 }
 
 
-// Tryk på stjernerne
+/* TRYK PÅ STJERNER */
 
 document.getElementById(
     "starCounter"
@@ -1696,7 +1935,7 @@ document.getElementById(
 );
 
 
-// Enter efter kode
+/* ENTER PÅ KODEN */
 
 document.getElementById(
     "parentPin"
@@ -1716,9 +1955,9 @@ document.getElementById(
 );
 
 
-// ----------------------
-// FEJRINGSBESKEDER
-// ----------------------
+/* ============================
+   FEJRING
+============================ */
 
 const celebrationMessages = [
 
@@ -1736,29 +1975,11 @@ const celebrationMessages = [
 
     "Du gjorde det hele! 🌈",
 
-    "Se lige dig! Du har klaret alle dagens ting! 🥰",
-
-    "Mega godt gået! Du kan være stolt af dig selv! ⭐",
+    "Mega godt gået! ⭐",
 
     "Du har tjent en stjerne i dag! 💗",
 
-    "Du er for sej! Hele dagen er klaret! 🚀",
-
-    "Du gjorde det! Endnu en dag i mål! 🌟",
-
-    "Fantastisk arbejde i dag! 💕",
-
-    "Du klarede alle dine opgaver! Hvor er det flot! 🦄",
-
-    "En hel dag klaret - kæmpe high five! ✋💗",
-
-    "Du er kommet endnu et skridt tættere på din næste belønning! 🎁",
-
-    "Du har virkelig gjort det godt i dag! 🌸",
-
     "Mission gennemført! ⭐",
-
-    "Sikke en flot indsats i dag! 💗",
 
     "Alle flueben er på plads! Du gjorde det! 🎉"
 
@@ -1768,23 +1989,14 @@ const celebrationMessages = [
 const celebrationAliens = [
 
     "👽💙",
-
     "👾💙",
-
     "🛸✨",
-
     "👽🌟",
-
     "👾🪐",
-
     "🚀💙"
 
 ];
 
-
-// ----------------------
-// VIS FEJRING
-// ----------------------
 
 function showCelebration() {
 
@@ -1834,10 +2046,6 @@ function showCelebration() {
 }
 
 
-// ----------------------
-// LUK FEJRING
-// ----------------------
-
 function closeCelebration() {
 
     document.getElementById(
@@ -1848,11 +2056,11 @@ function closeCelebration() {
 }
 
 
-// ----------------------
-// START APPEN
-// ----------------------
+/* ============================
+   START
+============================ */
 
-updateProgress();
+renderDay();
 
 updateRewards();
 
