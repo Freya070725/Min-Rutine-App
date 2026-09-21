@@ -7,7 +7,6 @@
 <title>Min dag 💗</title>
 
 <style>
-
 * {
     box-sizing: border-box;
 }
@@ -29,10 +28,7 @@ body {
     padding: 18px;
 }
 
-
-/* =========================
-   NY TOP
-========================= */
+/* ===== TOP ===== */
 
 .header {
     text-align: center;
@@ -43,36 +39,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 18px;
+    gap: 14px;
     margin-top: 5px;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
 .header-unicorn,
 .header-heart {
-    font-size: 64px;
+    font-size: 58px;
     line-height: 1;
     flex-shrink: 0;
 }
 
 .family-photo {
-    width: 125px;
-    height: 125px;
-
-    border-radius: 50%;
-
-    object-fit: cover;
-
-    /*
-       Viser lidt mere af venstre side,
-       så alle tre kommer godt med.
-    */
-    object-position: 43% center;
-
-    border: 5px solid #e49cde;
-
-    box-shadow:
-        0 6px 18px rgba(118, 74, 145, 0.22);
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    display: block;
 }
 
 h1 {
@@ -87,52 +70,32 @@ h1 {
     color: #8a739d;
 }
 
-
-/* =========================
-   DAGSVÆLGER
-========================= */
+/* ===== DAGSVÆLGER ===== */
 
 .day-navigation {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-
     background: rgba(255,255,255,0.88);
-
     border-radius: 24px;
     padding: 13px;
-
     margin: 18px 0;
-
-    box-shadow:
-        0 5px 18px rgba(123,92,141,0.12);
+    box-shadow: 0 5px 18px rgba(123,92,141,0.12);
 }
 
 .day-button {
     width: 50px;
     min-width: 50px;
     height: 50px;
-
     padding: 0;
-
     border-radius: 50%;
-
     font-size: 30px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #c697ff,
-            #917cff
-        );
-
+    background: linear-gradient(135deg, #c697ff, #917cff);
     color: white;
-
     border: none;
 }
 
@@ -156,56 +119,32 @@ h1 {
 
 .today-label {
     display: inline-block;
-
     background: #f4d8ff;
     color: #844b99;
-
     padding: 4px 11px;
-
     border-radius: 20px;
-
     font-size: 12px;
     font-weight: bold;
-
     margin-top: 6px;
 }
 
 .today-button {
     display: none;
-
     margin: 8px auto 0;
-
     padding: 7px 14px;
-
     font-size: 13px;
-
     border-radius: 20px;
 }
 
-
-/* =========================
-   BESKED
-========================= */
+/* ===== BESKED ===== */
 
 .message-card {
-    background:
-        linear-gradient(
-            135deg,
-            #fff5d9,
-            #ffeef8
-        );
-
+    background: linear-gradient(135deg, #fff5d9, #ffeef8);
     border-radius: 24px;
-
     padding: 17px;
-
     margin: 16px 0;
-
-    box-shadow:
-        0 5px 18px rgba(123,92,141,0.12);
-
+    box-shadow: 0 5px 18px rgba(123,92,141,0.12);
     text-align: center;
-
     border: 3px solid rgba(255,255,255,0.9);
 }
 
@@ -222,114 +161,63 @@ h1 {
     line-height: 1.45;
 }
 
-
-/* =========================
-   FREMSKRIDT
-========================= */
+/* ===== FREMSKRIDT ===== */
 
 .progress-box {
     background: rgba(255,255,255,0.90);
-
     border-radius: 24px;
-
     padding: 17px;
-
     margin-bottom: 18px;
-
-    box-shadow:
-        0 5px 18px rgba(123,92,141,0.12);
+    box-shadow: 0 5px 18px rgba(123,92,141,0.12);
 }
 
 .progress-row {
     display: flex;
     justify-content: space-between;
-
     gap: 10px;
-
     font-weight: bold;
-
     margin-bottom: 10px;
 }
 
 .progress-bar {
     width: 100%;
     height: 18px;
-
     background: #ece6f2;
-
     border-radius: 20px;
-
     overflow: hidden;
 }
 
 .progress {
     height: 100%;
     width: 0%;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff9ed4,
-            #bf8cff,
-            #90b8ff
-        );
-
+    background: linear-gradient(90deg, #ff9ed4, #bf8cff, #90b8ff);
     transition: width 0.4s ease;
 }
 
-
-/* =========================
-   SEKTIONER
-========================= */
+/* ===== SEKTIONER ===== */
 
 .section {
     border-radius: 24px;
-
     padding: 16px;
-
     margin-bottom: 18px;
-
-    box-shadow:
-        0 5px 18px rgba(123,92,141,0.12);
-
-    border:
-        2px solid rgba(255,255,255,0.85);
+    box-shadow: 0 5px 18px rgba(123,92,141,0.12);
+    border: 2px solid rgba(255,255,255,0.85);
 }
 
 .section.morning {
-    background:
-        linear-gradient(
-            135deg,
-            #fff1f7,
-            #f8edff
-        );
+    background: linear-gradient(135deg, #fff1f7, #f8edff);
 }
 
 .section.afterschool {
-    background:
-        linear-gradient(
-            135deg,
-            #eefff7,
-            #f8fff8
-        );
+    background: linear-gradient(135deg, #eefff7, #f8fff8);
 }
 
 .section.dinner {
-    background:
-        linear-gradient(
-            135deg,
-            #fff6e4,
-            #fffaf0
-        );
+    background: linear-gradient(135deg, #fff6e4, #fffaf0);
 }
 
 .section.bedtime {
-    background:
-        linear-gradient(
-            135deg,
-            #eee8ff,
-            #f8efff
-        );
+    background: linear-gradient(135deg, #eee8ff, #f8efff);
 }
 
 .section h2 {
@@ -337,134 +225,72 @@ h1 {
     font-size: 25px;
 }
 
-
-/* =========================
-   OPGAVER
-========================= */
+/* ===== OPGAVER ===== */
 
 .task {
     display: flex;
     align-items: center;
-
     gap: 12px;
-
-    background:
-        rgba(255,255,255,0.86);
-
-    border:
-        2px solid #ffffff;
-
-    padding:
-        13px 14px;
-
+    background: rgba(255,255,255,0.86);
+    border: 2px solid #ffffff;
+    padding: 13px 14px;
     border-radius: 17px;
-
     margin: 8px 0;
-
     font-size: 18px;
-
     cursor: pointer;
-
-    transition:
-        0.18s ease;
-
+    transition: 0.18s ease;
     user-select: none;
 }
 
-.task:hover {
-    transform:
-        translateY(-1px);
-}
-
 .task:active {
-    transform:
-        scale(0.985);
+    transform: scale(0.985);
 }
 
 .task-icon {
     font-size: 24px;
-
     width: 34px;
-
     text-align: center;
 }
 
 .check {
     width: 29px;
     height: 29px;
-
     min-width: 29px;
-
-    border:
-        3px solid #b6acc7;
-
+    border: 3px solid #b6acc7;
     border-radius: 50%;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     background: white;
 }
 
 .task.done {
-    background:
-        linear-gradient(
-            135deg,
-            #daf8df,
-            #edfff0
-        );
-
-    border-color:
-        #78d78a;
-
-    color:
-        #146428;
-
+    background: linear-gradient(135deg, #daf8df, #edfff0);
+    border-color: #78d78a;
+    color: #146428;
     font-weight: bold;
 }
 
 .task.done .check {
-    background:
-        #50c96c;
-
-    border-color:
-        #50c96c;
-
-    color:
-        white;
+    background: #50c96c;
+    border-color: #50c96c;
+    color: white;
 }
 
 .task.done .check::after {
     content: "✓";
-
     font-size: 20px;
-
     font-weight: bold;
 }
 
-
-/* =========================
-   BELØNNINGER
-========================= */
+/* ===== BELØNNINGER ===== */
 
 .reward-card {
-    background:
-        linear-gradient(
-            135deg,
-            #fff7dc,
-            #fff1fd
-        );
-
+    background: linear-gradient(135deg, #fff7dc, #fff1fd);
     border-radius: 24px;
-
     padding: 18px;
-
     margin-bottom: 25px;
-
-    box-shadow:
-        0 5px 18px rgba(123,92,141,0.12);
+    box-shadow: 0 5px 18px rgba(123,92,141,0.12);
 }
 
 .reward-card h2 {
@@ -474,41 +300,22 @@ h1 {
 
 .reward-total {
     background: white;
-
     border-radius: 18px;
-
     padding: 16px;
-
     text-align: center;
-
     margin-bottom: 12px;
-
     font-size: 21px;
-
     font-weight: bold;
-
     color: #9a4d8a;
-
     cursor: pointer;
-
     user-select: none;
 }
 
-.reward-total:active {
-    transform:
-        scale(0.99);
-}
-
 .reward-item {
-    background:
-        rgba(255,255,255,0.9);
-
+    background: rgba(255,255,255,0.9);
     padding: 14px;
-
     border-radius: 17px;
-
     margin: 10px 0;
-
     line-height: 1.5;
 }
 
@@ -519,126 +326,72 @@ h1 {
 
 .days-left {
     display: inline-block;
-
     margin-top: 7px;
-
     font-weight: bold;
-
     color: #81518f;
 }
 
 .footer-message {
     text-align: center;
-
     font-weight: bold;
-
     color: #8d5aa4;
-
     margin: 20px 0 40px;
-
     font-size: 18px;
 }
-
-
-/* =========================
-   KNAPPER
-========================= */
 
 button {
     border: 0;
-
     border-radius: 16px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #d766b4,
-            #9f72ff
-        );
-
+    background: linear-gradient(90deg, #d766b4, #9f72ff);
     color: white;
-
-    padding:
-        14px 26px;
-
+    padding: 14px 26px;
     font-size: 18px;
-
     font-weight: bold;
-
     cursor: pointer;
 }
 
-
-/* =========================
-   FORÆLDRE
-========================= */
+/* ===== FORÆLDRE ===== */
 
 .parent-overlay {
     display: none;
-
     position: fixed;
-
     inset: 0;
-
-    background:
-        rgba(38,28,69,.72);
-
+    background: rgba(38,28,69,.72);
     z-index: 1200;
-
     align-items: center;
     justify-content: center;
-
     padding: 20px;
 }
 
 .parent-card {
     width: 100%;
-
     max-width: 420px;
-
     background: white;
-
     border-radius: 28px;
-
     padding: 24px;
-
     text-align: center;
-
-    box-shadow:
-        0 12px 40px rgba(38,28,69,.3);
+    box-shadow: 0 12px 40px rgba(38,28,69,.3);
 }
 
 .parent-card h2 {
     margin-top: 0;
-
     color: #a3448c;
 }
 
 .parent-card input {
     width: 100%;
-
     padding: 14px;
-
-    border:
-        2px solid #d8cbea;
-
+    border: 2px solid #d8cbea;
     border-radius: 14px;
-
     font-size: 22px;
-
     text-align: center;
-
-    margin:
-        10px 0 14px;
+    margin: 10px 0 14px;
 }
 
 .parent-actions {
     display: flex;
-
     gap: 10px;
-
     justify-content: center;
-
     flex-wrap: wrap;
 }
 
@@ -651,114 +404,63 @@ button {
 }
 
 .danger-btn {
-    background:
-        linear-gradient(
-            90deg,
-            #d75b75,
-            #b54f75
-        );
+    background: linear-gradient(90deg, #d75b75, #b54f75);
 }
 
 .parent-note {
     color: #756589;
-
     font-size: 14px;
-
     margin-top: 12px;
 }
 
-
-/* =========================
-   FEJRING
-========================= */
+/* ===== FEJRING ===== */
 
 #celebration {
     display: none;
-
     position: fixed;
-
     inset: 0;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #7856a9,
-            #261c45 72%
-        );
-
+    background: radial-gradient(circle at center, #7856a9, #261c45 72%);
     z-index: 999;
-
     align-items: center;
     justify-content: center;
-
     padding: 22px;
 }
 
 .celebration-card {
     width: 100%;
-
     max-width: 470px;
-
     background: white;
-
     border-radius: 30px;
-
-    padding:
-        28px 20px;
-
+    padding: 28px 20px;
     text-align: center;
-
-    box-shadow:
-        0 0 35px #cda9ff88;
+    box-shadow: 0 0 35px #cda9ff88;
 }
 
 .alien {
     font-size: 100px;
-
-    animation:
-        bounce 0.75s infinite alternate;
+    animation: bounce 0.75s infinite alternate;
 }
 
 @keyframes bounce {
-
-    from {
-        transform:
-            translateY(0)
-            rotate(-6deg);
-    }
-
-    to {
-        transform:
-            translateY(-15px)
-            rotate(6deg);
-    }
-
+    from { transform: translateY(0) rotate(-6deg); }
+    to { transform: translateY(-15px) rotate(6deg); }
 }
 
 .celebration-title {
     font-size: 29px;
-
     font-weight: bold;
-
     color: #a3448c;
-
     margin: 8px 0;
 }
 
 .celebration-message {
     font-size: 18px;
-
     color: #6c5684;
-
     margin-bottom: 18px;
-
     line-height: 1.45;
 }
 
-
-/* =========================
-   MOBIL
-========================= */
+/* ===== MOBIL ===== */
 
 @media (max-width: 500px) {
 
@@ -767,21 +469,21 @@ button {
     }
 
     .header-top {
-        gap: 12px;
+        gap: 10px;
     }
 
     .family-photo {
-        width: 105px;
-        height: 105px;
+        width: 88px;
+        height: 88px;
     }
 
     .header-unicorn,
     .header-heart {
-        font-size: 53px;
+        font-size: 49px;
     }
 
     h1 {
-        font-size: 39px;
+        font-size: 38px;
     }
 
     .subtitle {
@@ -797,90 +499,55 @@ button {
     .day-name {
         font-size: 21px;
     }
-
 }
 
 </style>
 </head>
 
-
 <body>
 
 <div class="app">
-
-
-    <!-- =====================
-         TOP
-    ====================== -->
 
     <div class="header">
 
         <div class="header-top">
 
-            <div class="header-unicorn">
-                🦄
-            </div>
+            <div class="header-unicorn">🦄</div>
 
             <img
-                src="familie.jpeg"
+                src="familien.png"
                 class="family-photo"
-                alt="Familie"
+                alt="Familien"
             >
 
-            <div class="header-heart">
-                💗
-            </div>
+            <div class="header-heart">💗</div>
 
         </div>
 
-
-        <h1>
-            Min dag
-        </h1>
-
+        <h1>Min dag</h1>
 
         <div class="subtitle">
-            Små skridt hver dag gør en stor forskel 💗
+            Små skridt hver dag gør en stor forskel ✨
         </div>
 
     </div>
 
 
-    <!-- =====================
-         DAGSVÆLGER
-    ====================== -->
-
     <div class="day-navigation">
 
-        <button
-            class="day-button"
-            onclick="changeDay(-1)"
-        >
+        <button class="day-button" onclick="changeDay(-1)">
             ‹
         </button>
 
-
         <div class="day-info">
 
-            <div
-                class="day-name"
-                id="dayName"
-            ></div>
+            <div class="day-name" id="dayName"></div>
 
+            <div class="day-date" id="dayDate"></div>
 
-            <div
-                class="day-date"
-                id="dayDate"
-            ></div>
-
-
-            <div
-                class="today-label"
-                id="todayLabel"
-            >
+            <div class="today-label" id="todayLabel">
                 ⭐ I DAG
             </div>
-
 
             <button
                 class="today-button"
@@ -892,43 +559,27 @@ button {
 
         </div>
 
-
-        <button
-            class="day-button"
-            onclick="changeDay(1)"
-        >
+        <button class="day-button" onclick="changeDay(1)">
             ›
         </button>
 
     </div>
 
 
-    <!-- =====================
-         BESKED
-    ====================== -->
-
     <div class="message-card">
 
-        <h3>
-            💌 En besked til dig
-        </h3>
+        <h3>💌 En besked til dig</h3>
 
         <div id="dailyMessage"></div>
 
     </div>
 
 
-    <!-- =====================
-         FREMSKRIDT
-    ====================== -->
-
     <div class="progress-box">
 
         <div class="progress-row">
 
-            <span>
-                ⭐ Dagens fremskridt
-            </span>
+            <span>⭐ Dagens fremskridt</span>
 
             <span id="progressText">
                 0 / 0 klaret
@@ -936,46 +587,23 @@ button {
 
         </div>
 
-
         <div class="progress-bar">
-
-            <div
-                class="progress"
-                id="progress"
-            ></div>
-
+            <div class="progress" id="progress"></div>
         </div>
 
     </div>
 
 
-    <!-- OPGAVER -->
-
     <div id="taskContainer"></div>
 
 
-    <!-- =====================
-         BELØNNINGER
-    ====================== -->
-
     <div class="reward-card">
 
-        <h2>
-            🏆 Mine belønninger ✨
-        </h2>
+        <h2>🏆 Mine belønninger ✨</h2>
 
-
-        <div
-            class="reward-total"
-            id="starCounter"
-        >
-
+        <div class="reward-total" id="starCounter">
             ⭐ Stjerner i alt:
-
-            <span id="starCount">
-                0
-            </span>
-
+            <span id="starCount">0</span>
         </div>
 
 
@@ -985,15 +613,8 @@ button {
                 ⭐⭐⭐⭐⭐
             </div>
 
-            <b>
-                5 stjerner
-            </b>
-
-            <br>
-
-            En snack 🍿
-
-            <br>
+            <b>5 stjerner</b><br>
+            En snack 🍿<br>
 
             <span
                 class="days-left"
@@ -1009,15 +630,8 @@ button {
                 ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
             </div>
 
-            <b>
-                10 stjerner
-            </b>
-
-            <br>
-
-            En snack og en film 🎬
-
-            <br>
+            <b>10 stjerner</b><br>
+            En snack og en film 🎬<br>
 
             <span
                 class="days-left"
@@ -1033,15 +647,8 @@ button {
                 👑
             </div>
 
-            <b>
-                20 stjerner
-            </b>
-
-            <br>
-
-            Overraskelse 🎁
-
-            <br>
+            <b>20 stjerner</b><br>
+            Overraskelse 🎁<br>
 
             <span
                 class="days-left"
@@ -1060,28 +667,17 @@ button {
 </div>
 
 
-<!-- =========================
-     FORÆLDRE
-========================= -->
+<!-- FORÆLDRE -->
 
-<div
-    class="parent-overlay"
-    id="parentOverlay"
->
+<div class="parent-overlay" id="parentOverlay">
 
     <div class="parent-card">
 
-
         <div id="parentLogin">
 
-            <h2>
-                🔒 Forældre
-            </h2>
+            <h2>🔒 Forældre</h2>
 
-            <p>
-                Indtast forældrekoden
-            </p>
-
+            <p>Indtast forældrekoden</p>
 
             <input
                 id="parentPin"
@@ -1091,15 +687,11 @@ button {
                 placeholder="••••"
             >
 
-
             <div class="parent-actions">
 
-                <button
-                    onclick="unlockParent()"
-                >
+                <button onclick="unlockParent()">
                     Lås op
                 </button>
-
 
                 <button
                     class="secondary-btn"
@@ -1110,7 +702,6 @@ button {
 
             </div>
 
-
             <div
                 class="parent-note"
                 id="pinMessage"
@@ -1119,24 +710,14 @@ button {
         </div>
 
 
-        <div
-            id="parentControls"
-            style="display:none"
-        >
+        <div id="parentControls" style="display:none">
 
-            <h2>
-                ⭐ Juster stjerner
-            </h2>
-
+            <h2>⭐ Juster stjerner</h2>
 
             <p>
                 Stjerner lige nu:
-
-                <b id="parentStarCount">
-                    0
-                </b>
+                <b id="parentStarCount">0</b>
             </p>
-
 
             <div class="parent-actions">
 
@@ -1147,15 +728,11 @@ button {
                     − 1 stjerne
                 </button>
 
-
-                <button
-                    onclick="adjustStars(1)"
-                >
+                <button onclick="adjustStars(1)">
                     + 1 stjerne
                 </button>
 
             </div>
-
 
             <div
                 class="parent-actions"
@@ -1169,15 +746,11 @@ button {
                     − 5
                 </button>
 
-
-                <button
-                    onclick="adjustStars(5)"
-                >
+                <button onclick="adjustStars(5)">
                     + 5
                 </button>
 
             </div>
-
 
             <button
                 class="secondary-btn"
@@ -1194,26 +767,19 @@ button {
 </div>
 
 
-<!-- =========================
-     FEJRING
-========================= -->
+<!-- FEJRING -->
 
 <div id="celebration">
 
     <div class="celebration-card">
 
-        <div
-            class="alien"
-            id="alien"
-        >
+        <div class="alien" id="alien">
             👽
         </div>
-
 
         <div class="celebration-title">
             DU KLAREDE HELE DAGEN! ⭐
         </div>
-
 
         <div
             class="celebration-message"
@@ -1222,10 +788,7 @@ button {
             Hvor er du sej! 💗
         </div>
 
-
-        <button
-            onclick="closeCelebration()"
-        >
+        <button onclick="closeCelebration()">
             Fedt! ⭐
         </button>
 
@@ -1236,96 +799,54 @@ button {
 
 <script>
 
+/* ===== DATO ===== */
 
-/* ============================
-   DATO
-============================ */
+const realToday = new Date();
+realToday.setHours(0,0,0,0);
 
-const realToday =
-    new Date();
-
-realToday.setHours(
-    0,
-    0,
-    0,
-    0
-);
-
-let selectedDate =
-    new Date(realToday);
+let selectedDate = new Date(realToday);
 
 
-/* ============================
-   BESKEDER
-============================ */
+/* ===== BESKEDER ===== */
 
 const messages = [
 
     "Vi håber, du får verdens bedste dag! 💗",
-
     "Vi kommer til at savne dig i dag! 🥰",
-
     "Vi håber, du kommer til at grine rigtig meget i dag! 😂",
-
     "Vi håber, du får hygget dig rigtig meget i dag! 🫶",
-
     "Vi håber, din dag bliver fyldt med gode oplevelser! 🌈",
-
     "Husk, at vi elsker dig helt op til månen og tilbage! 🌙💗",
-
     "Vi håber, du får en dag med masser af smil! 🥰",
-
     "Vi håber, nogen får dig til at grine i dag! 🌸",
-
     "Husk at være lige præcis dig – du er fantastisk! 💗",
-
     "Vi håber, du får en rigtig dejlig dag! ☀️",
-
     "Må din dag blive fyldt med grin og hygge! 🦄",
-
     "Vi glæder os allerede til at se dig igen! 🤗",
-
     "Vi håber, du kommer hjem med noget sjovt at fortælle! 🌟",
-
     "Vi håber, du får en rolig og hyggelig dag 💗",
-
     "Må der ske mindst én ting i dag, som får dig til at smile stort 😄",
-
     "Vi håber, du får en masse gode øjeblikke i dag 🌷",
-
     "Husk at have det sjovt og nyde din dag 💕",
-
     "Vi tænker på dig og håber, du får en fantastisk dag 💗",
-
     "Vi håber, du får et kæmpe smil på læben i dag 😁",
-
     "Vi glæder os til at høre om din dag 💕",
-
     "Du fortjener en virkelig dejlig dag i dag 💗",
-
     "Vi sender dig et usynligt kæmpekram 🤗",
-
     "Vi håber, du får en dag, du bliver glad af at tænke tilbage på 🌸"
 
 ];
 
 
-/* ============================
-   FASTE OPGAVER
-============================ */
+/* ===== OPGAVER ===== */
 
 const morningNormal = [
 
     ["👁️", "Fjern søvn fra øjnene"],
-
     ["🪮", "Red håret"],
-
     ["🪥", "Børst tænder"],
-
     ["👕", "Tag tøj på"],
-
     ["🥣", "Spis morgenmad"],
-
     ["🚽", "Gå på toilettet"]
 
 ];
@@ -1334,11 +855,8 @@ const morningNormal = [
 const afterSchoolNormal = [
 
     ["🍱", "Tøm madpakke"],
-
     ["🚽", "Gå på toilettet"],
-
     ["📚", "Lav lektier"],
-
     ["🧺", "Ryd op efter dig på værelset"]
 
 ];
@@ -1347,7 +865,6 @@ const afterSchoolNormal = [
 const weekendDay = [
 
     ["🚽", "Gå på toilettet"],
-
     ["🧺", "Ryd op efter dig på værelset"]
 
 ];
@@ -1356,9 +873,7 @@ const weekendDay = [
 const afterDinner = [
 
     ["🚽", "Gå på toilettet"],
-
     ["🧼", "Vask hænder"],
-
     ["💦", "Vask mund"]
 
 ];
@@ -1367,66 +882,34 @@ const afterDinner = [
 const bedtime = [
 
     ["🚽", "Gå på toilettet"],
-
     ["🪥", "Børst tænder"],
-
     ["🌙", "Tag nattøj på"],
-
     ["🪮", "Red håret"],
-
     ["💧", "Tag vand med ind"],
-
     ["📱", "Læg mobilen til opladning"]
 
 ];
 
 
-/* ============================
-   DATO-NØGLE
-============================ */
+/* ===== DATO-NØGLE ===== */
 
 function getDateKey(date) {
 
     return (
-
-        date.getFullYear()
-        + "-"
-        +
-
-        String(
-            date.getMonth() + 1
-        ).padStart(
-            2,
-            "0"
-        )
-
-        + "-"
-        +
-
-        String(
-            date.getDate()
-        ).padStart(
-            2,
-            "0"
-        )
-
+        date.getFullYear() + "-" +
+        String(date.getMonth() + 1).padStart(2, "0") + "-" +
+        String(date.getDate()).padStart(2, "0")
     );
 
 }
 
 
-/* ============================
-   SKIFT DAG
-============================ */
+/* ===== SKIFT DAG ===== */
 
 function changeDay(amount) {
 
     selectedDate.setDate(
-
-        selectedDate.getDate()
-        +
-        amount
-
+        selectedDate.getDate() + amount
     );
 
     renderDay();
@@ -1436,43 +919,28 @@ function changeDay(amount) {
 
 function goToToday() {
 
-    selectedDate =
-        new Date(realToday);
+    selectedDate = new Date(realToday);
 
     renderDay();
 
 }
 
 
-/* ============================
-   ER DET I DAG?
-============================ */
-
 function isToday(date) {
 
     return (
-
-        getDateKey(date)
-        ===
+        getDateKey(date) ===
         getDateKey(realToday)
-
     );
 
 }
 
 
-/* ============================
-   LAV OPGAVE
-============================ */
+/* ===== LAV OPGAVE ===== */
 
-function createTask(
-    icon,
-    text,
-    id
-) {
+function createTask(icon, text, id) {
 
     return `
-
         <div
             class="task"
             data-task="${id}"
@@ -1490,242 +958,131 @@ function createTask(
             </div>
 
         </div>
-
     `;
 
 }
 
 
-/* ============================
-   LAV SEKTION
-============================ */
+/* ===== LAV SEKTION ===== */
 
-function createSection(
-    cssClass,
-    title,
-    tasks
-) {
+function createSection(cssClass, title, tasks) {
 
     let html = `
-
-        <div
-            class="section ${cssClass}"
-        >
-
-            <h2>
-                ${title}
-            </h2>
-
+        <div class="section ${cssClass}">
+            <h2>${title}</h2>
     `;
 
+    tasks.forEach((task, index) => {
 
-    tasks.forEach(
+        html += createTask(
+            task[0],
+            task[1],
+            cssClass + "-" + index + "-" + task[1]
+        );
 
-        (task, index) => {
+    });
 
-            html += createTask(
-
-                task[0],
-
-                task[1],
-
-                cssClass
-                + "-"
-                + index
-                + "-"
-                + task[1]
-
-            );
-
-        }
-
-    );
-
-
-    html += `
-        </div>
-    `;
-
+    html += `</div>`;
 
     return html;
 
 }
 
 
-/* ============================
-   VIS DAG
-============================ */
+/* ===== VIS DAG ===== */
 
 function renderDay() {
 
-    const weekday =
-        selectedDate.getDay();
-
+    const weekday = selectedDate.getDay();
 
     const weekend =
-
-        weekday === 0
-        ||
+        weekday === 0 ||
         weekday === 6;
 
 
-    /* DAGSNAVN */
-
-    document.getElementById(
-        "dayName"
-    ).textContent =
-
-        selectedDate
-        .toLocaleDateString(
-
+    document.getElementById("dayName").textContent =
+        selectedDate.toLocaleDateString(
             "da-DK",
-
-            {
-                weekday:
-                    "long"
-            }
-
+            { weekday: "long" }
         );
 
 
-    /* DATO */
-
-    document.getElementById(
-        "dayDate"
-    ).textContent =
-
-        selectedDate
-        .toLocaleDateString(
-
+    document.getElementById("dayDate").textContent =
+        selectedDate.toLocaleDateString(
             "da-DK",
-
             {
-                day:
-                    "numeric",
-
-                month:
-                    "long",
-
-                year:
-                    "numeric"
+                day: "numeric",
+                month: "long",
+                year: "numeric"
             }
-
         );
 
 
-    /* I DAG */
+    if (isToday(selectedDate)) {
 
-    if (
-        isToday(selectedDate)
-    ) {
-
-        document.getElementById(
-            "todayLabel"
-        ).style.display =
+        document.getElementById("todayLabel").style.display =
             "inline-block";
 
-
-        document.getElementById(
-            "todayButton"
-        ).style.display =
+        document.getElementById("todayButton").style.display =
             "none";
 
-    }
+    } else {
 
-    else {
-
-        document.getElementById(
-            "todayLabel"
-        ).style.display =
+        document.getElementById("todayLabel").style.display =
             "none";
 
-
-        document.getElementById(
-            "todayButton"
-        ).style.display =
+        document.getElementById("todayButton").style.display =
             "block";
 
     }
 
 
-    /* DAGENS BESKED */
-
     const dayNumber =
-
         Math.floor(
-
-            selectedDate.getTime()
-            /
-            86400000
-
+            selectedDate.getTime() / 86400000
         );
 
 
-    document.getElementById(
-        "dailyMessage"
-    ).textContent =
-
+    document.getElementById("dailyMessage").textContent =
         messages[
-
-            Math.abs(dayNumber)
-            %
+            Math.abs(dayNumber) %
             messages.length
-
         ];
 
 
-    /* =====================
-       MORGEN
-    ====================== */
+    /* MORGEN */
 
     let morning =
-
         morningNormal.map(
-
             task => [...task]
-
         );
 
 
-    /* TIRSDAG + ONSDAG */
+    /* TIRSDAG + ONSDAG: HÅRET OP */
 
     if (
-
-        weekday === 2
-        ||
+        weekday === 2 ||
         weekday === 3
-
     ) {
 
         morning.splice(
-
             2,
-
             0,
-
-            [
-                "🎀",
-                "Sæt håret op til skole"
-            ]
-
+            ["🎀", "Sæt håret op til skole"]
         );
 
     }
 
 
-    /* ONSDAG */
+    /* ONSDAG: TØJ DER MÅ BLIVE BESKIDT */
 
-    if (
-        weekday === 3
-    ) {
+    if (weekday === 3) {
 
         morning.push(
-
             [
                 "🎨",
                 "Tag tøj på, som må blive beskidt"
             ]
-
         );
 
     }
@@ -1736,22 +1093,11 @@ function renderDay() {
     if (!weekend) {
 
         morning.push(
-
-            [
-                "🍱",
-                "Put madpakken i tasken"
-            ]
-
+            ["🍱", "Put madpakken i tasken"]
         );
 
-
         morning.push(
-
-            [
-                "🎒",
-                "Tjek at skoletasken er klar"
-            ]
-
+            ["🎒", "Tjek at skoletasken er klar"]
         );
 
     }
@@ -1773,34 +1119,25 @@ function renderDay() {
     );
 
 
-    /* =====================
-       HVERDAG / EFTER SKOLE
-    ====================== */
+    /* ===== EFTER SKOLE ===== */
 
     if (!weekend) {
 
         let afternoon =
-
             afterSchoolNormal.map(
-
                 task => [...task]
-
             );
 
 
         /* MANDAG */
 
-        if (
-            weekday === 1
-        ) {
+        if (weekday === 1) {
 
             afternoon.push(
-
                 [
                     "🤸",
                     "Pak gymnastiktøj, så det er klar til tirsdag"
                 ]
-
             );
 
         }
@@ -1808,142 +1145,99 @@ function renderDay() {
 
         /* TIRSDAG */
 
-        if (
-            weekday === 2
-        ) {
+        if (weekday === 2) {
 
             afternoon.push(
-
                 [
                     "👚",
                     "Gymnastiktøj til vask"
                 ]
-
             );
 
         }
 
 
         /*
-          MADPAKKE
-          MANDAG - TORSDAG
+           MADPAKKE TIL NÆSTE DAG
+           MANDAG - TORSDAG
         */
 
         if (
-
-            weekday >= 1
-            &&
+            weekday >= 1 &&
             weekday <= 4
-
         ) {
 
             afternoon.push(
-
                 [
                     "🍱",
                     "Lav madpakke til i morgen"
                 ]
-
             );
 
         }
 
 
         html += createSection(
-
             "afterschool",
-
             "🎒 Efter skole",
-
             afternoon
-
         );
 
     }
 
 
-    /* =====================
-       WEEKEND
-    ====================== */
+    /* ===== WEEKEND ===== */
 
     else {
 
         let dayTasks =
-
             weekendDay.map(
-
                 task => [...task]
-
             );
 
 
-        /*
-          SØNDAG:
-          MADPAKKE TIL MANDAG
-        */
+        /* SØNDAG: MADPAKKE TIL MANDAG */
 
-        if (
-            weekday === 0
-        ) {
+        if (weekday === 0) {
 
             dayTasks.push(
-
                 [
                     "🍱",
                     "Lav madpakke til i morgen"
                 ]
-
             );
 
         }
 
 
         html += createSection(
-
             "afterschool",
-
             "🌈 I løbet af dagen",
-
             dayTasks
-
         );
 
     }
 
 
-    /* =====================
-       EFTER AFTENSMAD
-    ====================== */
+    /* EFTER AFTENSMAD */
 
     html += createSection(
-
         "dinner",
-
         "🍽️ Efter aftensmad",
-
         afterDinner
-
     );
 
 
-    /* =====================
-       SENGETID
-    ====================== */
+    /* SENGETID */
 
     html += createSection(
-
         "bedtime",
-
         "🌙 Sengetid",
-
         bedtime
-
     );
 
 
-    document.getElementById(
-        "taskContainer"
-    ).innerHTML =
+    document.getElementById("taskContainer").innerHTML =
         html;
 
 
@@ -1954,15 +1248,11 @@ function renderDay() {
 }
 
 
-/* ============================
-   FLUEBEN
-============================ */
+/* ===== FLUEBEN ===== */
 
 function toggleTask(task) {
 
-    task.classList.toggle(
-        "done"
-    );
+    task.classList.toggle("done");
 
     saveTasks();
 
@@ -1971,198 +1261,112 @@ function toggleTask(task) {
 }
 
 
-/* ============================
-   GEM FLUEBEN
-============================ */
+/* ===== GEM FLUEBEN PR. DATO ===== */
 
 function saveTasks() {
 
     const dateKey =
-        getDateKey(
-            selectedDate
-        );
-
+        getDateKey(selectedDate);
 
     const completed = [];
 
 
     document
-        .querySelectorAll(
-            ".task"
-        )
-        .forEach(
+        .querySelectorAll(".task")
+        .forEach(task => {
 
-            task => {
+            if (
+                task.classList.contains("done")
+            ) {
 
-                if (
-
-                    task.classList.contains(
-                        "done"
-                    )
-
-                ) {
-
-                    completed.push(
-
-                        task.dataset.task
-
-                    );
-
-                }
+                completed.push(
+                    task.dataset.task
+                );
 
             }
 
-        );
+        });
 
 
     localStorage.setItem(
-
-        "routine-tasks-"
-        +
-        dateKey,
-
-        JSON.stringify(
-            completed
-        )
-
+        "routine-tasks-" + dateKey,
+        JSON.stringify(completed)
     );
 
 }
 
 
-/* ============================
-   HENT FLUEBEN
-============================ */
+/* ===== HENT FLUEBEN ===== */
 
 function loadTasks() {
 
     const dateKey =
-        getDateKey(
-            selectedDate
-        );
+        getDateKey(selectedDate);
 
 
     const saved =
-
         JSON.parse(
-
             localStorage.getItem(
-
-                "routine-tasks-"
-                +
-                dateKey
-
-            )
-
-            ||
-
-            "[]"
-
+                "routine-tasks-" + dateKey
+            ) || "[]"
         );
 
 
     document
-        .querySelectorAll(
-            ".task"
-        )
-        .forEach(
+        .querySelectorAll(".task")
+        .forEach(task => {
 
-            task => {
+            if (
+                saved.includes(
+                    task.dataset.task
+                )
+            ) {
 
-                if (
-
-                    saved.includes(
-                        task.dataset.task
-                    )
-
-                ) {
-
-                    task.classList.add(
-                        "done"
-                    );
-
-                }
+                task.classList.add("done");
 
             }
 
-        );
+        });
 
 }
 
 
-/* ============================
-   FREMSKRIDT
-============================ */
+/* ===== FREMSKRIDT ===== */
 
 function updateProgress() {
 
-    const tasks = [
-
-        ...document.querySelectorAll(
-            ".task"
-        )
-
-    ];
+    const tasks =
+        [...document.querySelectorAll(".task")];
 
 
     const completed =
-
         tasks.filter(
-
             task =>
-
-                task.classList.contains(
-                    "done"
-                )
-
+                task.classList.contains("done")
         );
 
 
-    const total =
-        tasks.length;
+    const total = tasks.length;
+    const done = completed.length;
 
 
-    const done =
-        completed.length;
-
-
-    document.getElementById(
-        "progressText"
-    ).textContent =
-
-        done
-        +
-        " / "
-        +
-        total
-        +
-        " klaret";
+    document.getElementById("progressText").textContent =
+        done + " / " + total + " klaret";
 
 
     const percentage =
-
         total === 0
-
-        ? 0
-
-        : (done / total) * 100;
+            ? 0
+            : (done / total) * 100;
 
 
-    document.getElementById(
-        "progress"
-    ).style.width =
-
-        percentage
-        +
-        "%";
+    document.getElementById("progress").style.width =
+        percentage + "%";
 
 
     if (
-
-        total > 0
-        &&
+        total > 0 &&
         done === total
-
     ) {
 
         completeDay();
@@ -2172,31 +1376,22 @@ function updateProgress() {
 }
 
 
-/* ============================
-   HELE DAGEN KLARET
-============================ */
+/* ===== DAGEN KLARET ===== */
 
 function completeDay() {
 
     const dateKey =
-        getDateKey(
-            selectedDate
-        );
+        getDateKey(selectedDate);
 
 
     const celebrationKey =
-
-        "celebrated-"
-        +
-        dateKey;
+        "celebrated-" + dateKey;
 
 
     if (
-
         localStorage.getItem(
             celebrationKey
         )
-
     ) {
 
         return;
@@ -2205,34 +1400,19 @@ function completeDay() {
 
 
     localStorage.setItem(
-
         celebrationKey,
-
         "yes"
-
     );
 
 
-    registerStar(
-        dateKey
-    );
+    registerStar(dateKey);
 
 
-    /*
-       VIS KUN FEJRING
-       HVIS DET ER I DAG
-    */
-
-    if (
-        isToday(selectedDate)
-    ) {
+    if (isToday(selectedDate)) {
 
         setTimeout(
-
             showCelebration,
-
             300
-
         );
 
     }
@@ -2240,48 +1420,27 @@ function completeDay() {
 }
 
 
-/* ============================
-   REGISTRER STJERNE
-============================ */
+/* ===== STJERNER ===== */
 
 function registerStar(dateKey) {
 
     let starDays =
-
         JSON.parse(
-
             localStorage.getItem(
                 "star-days"
-            )
-
-            ||
-
-            "[]"
-
+            ) || "[]"
         );
 
 
     if (
-
-        !starDays.includes(
-            dateKey
-        )
-
+        !starDays.includes(dateKey)
     ) {
 
-        starDays.push(
-            dateKey
-        );
-
+        starDays.push(dateKey);
 
         localStorage.setItem(
-
             "star-days",
-
-            JSON.stringify(
-                starDays
-            )
-
+            JSON.stringify(starDays)
         );
 
     }
@@ -2292,60 +1451,34 @@ function registerStar(dateKey) {
 }
 
 
-/* ============================
-   ANTAL STJERNER
-============================ */
-
 function currentStarCount() {
 
     const starDays =
-
         JSON.parse(
-
             localStorage.getItem(
                 "star-days"
-            )
-
-            ||
-
-            "[]"
-
+            ) || "[]"
         );
 
 
     const adjustment =
-
         parseInt(
-
             localStorage.getItem(
                 "star-adjustment"
-            )
-
-            ||
-
-            "0",
-
+            ) || "0",
             10
-
         );
 
 
     return Math.max(
-
         0,
-
-        starDays.length
-        +
-        adjustment
-
+        starDays.length + adjustment
     );
 
 }
 
 
-/* ============================
-   BELØNNINGER
-============================ */
+/* ===== BELØNNINGER ===== */
 
 function updateRewards() {
 
@@ -2353,80 +1486,39 @@ function updateRewards() {
         currentStarCount();
 
 
-    document.getElementById(
-        "starCount"
-    ).textContent =
+    document.getElementById("starCount").textContent =
         count;
 
 
     const left5 =
-        Math.max(
-            5 - count,
-            0
-        );
-
+        Math.max(5 - count, 0);
 
     const left10 =
-        Math.max(
-            10 - count,
-            0
-        );
-
+        Math.max(10 - count, 0);
 
     const left20 =
-        Math.max(
-            20 - count,
-            0
-        );
+        Math.max(20 - count, 0);
 
 
-    document.getElementById(
-        "starsTo5"
-    ).textContent =
-
+    document.getElementById("starsTo5").textContent =
         left5 === 0
-
-        ? "🎉 Belønningen er nået!"
-
-        : "Mangler "
-          +
-          left5
-          +
-          " stjerner";
+            ? "🎉 Belønningen er nået!"
+            : "Mangler " + left5 + " stjerner";
 
 
-    document.getElementById(
-        "starsTo10"
-    ).textContent =
-
+    document.getElementById("starsTo10").textContent =
         left10 === 0
-
-        ? "🎉 Belønningen er nået!"
-
-        : "Mangler "
-          +
-          left10
-          +
-          " stjerner";
+            ? "🎉 Belønningen er nået!"
+            : "Mangler " + left10 + " stjerner";
 
 
-    document.getElementById(
-        "starsTo20"
-    ).textContent =
-
+    document.getElementById("starsTo20").textContent =
         left20 === 0
-
-        ? "🎉 Belønningen er nået!"
-
-        : "Mangler "
-          +
-          left20
-          +
-          " stjerner";
+            ? "🎉 Belønningen er nået!"
+            : "Mangler " + left20 + " stjerner";
 
 
     const parentCount =
-
         document.getElementById(
             "parentStarCount"
         );
@@ -2442,71 +1534,55 @@ function updateRewards() {
 }
 
 
-/* ============================
-   ÅBN FORÆLDRE
-============================ */
+/* ===== FORÆLDREFUNKTION ===== */
 
 function openParent() {
 
     document.getElementById(
         "parentOverlay"
-    ).style.display =
-        "flex";
+    ).style.display = "flex";
 
 
     document.getElementById(
         "parentLogin"
-    ).style.display =
-        "block";
+    ).style.display = "block";
 
 
     document.getElementById(
         "parentControls"
-    ).style.display =
-        "none";
+    ).style.display = "none";
 
 
     document.getElementById(
         "parentPin"
-    ).value =
-        "";
+    ).value = "";
 
 
     document.getElementById(
         "pinMessage"
-    ).textContent =
-        "";
+    ).textContent = "";
 
 }
 
 
-/* ============================
-   FORÆLDREKODE
-============================ */
-
 function unlockParent() {
 
     const pin =
-
         document.getElementById(
             "parentPin"
         ).value;
 
 
-    if (
-        pin === "1722"
-    ) {
+    if (pin === "1722") {
 
         document.getElementById(
             "parentLogin"
-        ).style.display =
-            "none";
+        ).style.display = "none";
 
 
         document.getElementById(
             "parentControls"
-        ).style.display =
-            "block";
+        ).style.display = "block";
 
 
         document.getElementById(
@@ -2514,9 +1590,7 @@ function unlockParent() {
         ).textContent =
             currentStarCount();
 
-    }
-
-    else {
+    } else {
 
         document.getElementById(
             "pinMessage"
@@ -2528,9 +1602,7 @@ function unlockParent() {
 }
 
 
-/* ============================
-   TILFØJ / FJERN STJERNER
-============================ */
+/* ===== PLUS / MINUS STJERNER ===== */
 
 function adjustStars(amount) {
 
@@ -2539,71 +1611,42 @@ function adjustStars(amount) {
 
 
     const starDays =
-
         JSON.parse(
-
             localStorage.getItem(
                 "star-days"
-            )
-
-            ||
-
-            "[]"
-
+            ) || "[]"
         );
 
 
     const target =
-
         Math.max(
-
             0,
-
             before + amount
-
         );
 
 
     const adjustment =
-
-        target
-        -
-        starDays.length;
+        target - starDays.length;
 
 
     localStorage.setItem(
-
         "star-adjustment",
-
-        String(
-            adjustment
-        )
-
+        String(adjustment)
     );
 
 
-    /* HISTORIK */
-
     const history =
-
         JSON.parse(
-
             localStorage.getItem(
                 "star-history"
-            )
-
-            ||
-
-            "[]"
-
+            ) || "[]"
         );
 
 
     history.push({
 
         date:
-            new Date()
-            .toISOString(),
+            new Date().toISOString(),
 
         change:
             target - before,
@@ -2615,13 +1658,8 @@ function adjustStars(amount) {
 
 
     localStorage.setItem(
-
         "star-history",
-
-        JSON.stringify(
-            history
-        )
-
+        JSON.stringify(history)
     );
 
 
@@ -2630,10 +1668,6 @@ function adjustStars(amount) {
 }
 
 
-/* ============================
-   LUK FORÆLDRE
-============================ */
-
 function closeParent() {
 
     document.getElementById(
@@ -2641,36 +1675,21 @@ function closeParent() {
     ).style.display =
         "none";
 
-
-    document.getElementById(
-        "parentPin"
-    ).value =
-        "";
-
 }
 
-
-/* TRYK PÅ STJERNER */
 
 document.getElementById(
     "starCounter"
 ).addEventListener(
-
     "click",
-
     openParent
-
 );
 
-
-/* ENTER EFTER KODE */
 
 document.getElementById(
     "parentPin"
 ).addEventListener(
-
     "keydown",
-
     event => {
 
         if (
@@ -2682,36 +1701,23 @@ document.getElementById(
         }
 
     }
-
 );
 
 
-/* ============================
-   FEJRINGSBESKEDER
-============================ */
+/* ===== FEJRING ===== */
 
 const celebrationMessages = [
 
     "Vi elsker dig! 💗",
-
     "Hvor er du sej! 🌟",
-
     "Godt gået, du gjorde det! 🎉",
-
     "En stjerne tættere på en belønning! ⭐",
-
     "Du klarede hele dagen! Mega flot! 💗",
-
     "Vi er stolte af dig! 💕",
-
     "Du gjorde det hele! 🌈",
-
     "Mega godt gået! ⭐",
-
     "Du har tjent en stjerne i dag! 💗",
-
     "Mission gennemført! ⭐",
-
     "Alle flueben er på plads! Du gjorde det! 🎉"
 
 ];
@@ -2720,52 +1726,34 @@ const celebrationMessages = [
 const celebrationAliens = [
 
     "👽💙",
-
     "👾💙",
-
     "🛸✨",
-
     "👽🌟",
-
     "👾🪐",
-
     "🚀💙"
 
 ];
 
 
-/* ============================
-   VIS FEJRING
-============================ */
-
 function showCelebration() {
 
     const messageIndex =
-
         Math.floor(
-
-            Math.random()
-            *
+            Math.random() *
             celebrationMessages.length
-
         );
 
 
     const alienIndex =
-
         Math.floor(
-
-            Math.random()
-            *
+            Math.random() *
             celebrationAliens.length
-
         );
 
 
     document.getElementById(
         "celebrationMessage"
     ).textContent =
-
         celebrationMessages[
             messageIndex
         ];
@@ -2774,7 +1762,6 @@ function showCelebration() {
     document.getElementById(
         "alien"
     ).textContent =
-
         celebrationAliens[
             alienIndex
         ];
@@ -2788,10 +1775,6 @@ function showCelebration() {
 }
 
 
-/* ============================
-   LUK FEJRING
-============================ */
-
 function closeCelebration() {
 
     document.getElementById(
@@ -2802,12 +1785,9 @@ function closeCelebration() {
 }
 
 
-/* ============================
-   START APP
-============================ */
+/* ===== START ===== */
 
 renderDay();
-
 updateRewards();
 
 </script>
